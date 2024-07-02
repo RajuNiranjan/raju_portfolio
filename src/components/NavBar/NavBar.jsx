@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import sideMenuUserImg from "@/assets/sideMenuUserImg.png";
+import Image from "next/image";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -24,7 +26,7 @@ const NavBar = () => {
   }, [menuRef]);
 
   return (
-    <nav className="bg-[#004736] text-white font-medium">
+    <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md">
       <div className="flex items-center justify-between px-5 md:px-14 py-5">
         <div>
           <Link href="">
@@ -48,8 +50,7 @@ const NavBar = () => {
           </ul>
           <button
             className="md:hidden transition-all duration-300 relative"
-            onClick={() => setShowMenu(!showMenu)}
-          >
+            onClick={() => setShowMenu(!showMenu)}>
             {showMenu ? (
               <CloseIcon className="w-6 h-6 transition-all duration-300" />
             ) : (
@@ -59,26 +60,34 @@ const NavBar = () => {
           {showMenu && (
             <div
               ref={menuRef}
-              className="absolute top-0 left-0 h-full  shadow-sm bg-[#004736] w-[200px] flex flex-col justify-between  md:hidden"
-            >
-              <div>
-                <div className="my-10 flex items-center px-4 gap-2">
-                  <AccountCircleIcon className="text-[34px]" />
-                  <h1 className="text-yellow-500 font-bold text-lg">
-                    Niranjan Raju
-                  </h1>
+              className="absolute top-0 left-0 h-screen  shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between  md:hidden">
+              <div className="flex flex-col gap-10">
+                <div className=" flex items-center px-4 justify-center  gap-2 mt-4">
+                  <Image
+                    src={sideMenuUserImg}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <h1 className="text-yellow-500 font-bold text-lg">
+                      Niranjan Raju
+                    </h1>
+                    <small>Full Stack Developer</small>
+                  </div>
                 </div>
-                <ul className="flex flex-col gap-5 float-end">
-                  <li className="bg-yellow-500 p-2 rounded-l-full text-black  w-[150px]">
+                <ul className="flex flex-col gap-5 items-end justify-center w-full">
+                  <li className="bg-yellow-500 p-2 rounded-l-full shadow-lg text-black w-[80%]">
                     <Link href="">About me</Link>
                   </li>
-                  <li>
+                  <li className=" p-2 rounded-l-full text-white w-[80%]">
                     <Link href="">Resume</Link>
                   </li>
-                  <li>
+                  <li className=" p-2 rounded-l-full text-white w-[80%]">
                     <Link href="">Work</Link>
                   </li>
-                  <li>
+                  <li className=" p-2 rounded-l-full text-white w-[80%]">
                     <Link href="">Get in Touch</Link>
                   </li>
                 </ul>
