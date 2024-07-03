@@ -1,7 +1,12 @@
+import AboutMe from "@/components/AboutMe/AboutMe";
 import React from "react";
 
-const Home = ()=>{
-  return <h1>Code comes here</h1>
-}
+const Home = () => {
+  return (
+    <>
+      <AboutMe />
+    </>
+  );
+};
 
-export default Home
+export default Home;
