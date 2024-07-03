@@ -47,11 +47,11 @@ const Experience = () => {
           {ExperienceData.map((item, index) => (
             <li key={index} className="mb-10 ms-4 ">
               <div className="absolute w-3 h-3  rounded-full mt-0 -start-1.5 border border-black bg-black "></div>
-              <div className="flex items-start gap-6 ">
-                <time className=" text-md  w-[220px] font-bold  leading-none text-black">
+              <div className="flex flex-col lg:flex-row  items-start  ">
+                <time className=" text-md w-full lg:w-[220px] font-bold  leading-none text-black">
                   {item.time}
                 </time>
-                <div className="-mt-2 ">
+                <div className="lg:-mt-2 w-full  ">
                   <h3 className="text-xl font-semibold">{item.companyName}</h3>
                   <p className="mb-4 text-base font-semibold">{item.role}</p>
                   <div>
