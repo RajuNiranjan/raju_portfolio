@@ -8,9 +8,9 @@ import Link from "next/link";
 
 const AboutMe = () => {
   return (
-    <div className="md:h-[600px] bg-[#f6eee1] w-full p-4">
+    <div id="about-me" className="md:h-[600px] bg-[#f6eee1] w-full p-4">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="flex my-10 h-max flex-col gap-4 px-4  ">
+        <div className="flex my-20 h-max flex-col  gap-4 px-4  ">
           <div className="text-[34px] md:text-[54px]  font-bold font-serif">
             <h1>Hello,</h1>
             <h1>I&apos;m Niranjan !</h1>
@@ -45,7 +45,7 @@ const AboutMe = () => {
               <button className="hidden sm:block absolute text-xs font-medium bottom-28 bg-[#fdad16] p-2 rounded-full w-max right-[-30px]">
                 Get in Touch
               </button>
-              <div className="absolute h-40 w-40 bg-[#f6eee1] rounded-full top-14 left-20 lg:left-24" />
+              <div className="absolute h-40 w-40 bg-[#f6eee1] rounded-full top-14 left-[70px] lg:left-24" />
               <div className="absolute w-full h-[200px] bg-black bottom-[-120px] p-4 rounded-md">
                 <h1 className="text-[#f6eee1] text-[44px] font-bold ">
                   Contact

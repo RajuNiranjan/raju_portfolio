@@ -2,7 +2,6 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import sideMenuUserImg from "@/assets/sideMenuUserImg.png";
 import Image from "next/image";
 
@@ -36,10 +35,10 @@ const NavBar = () => {
         <div>
           <ul className="hidden md:flex items-center gap-4">
             <li>
-              <Link href="">About me</Link>
+              <Link href="#about-me">About me</Link>
             </li>
             <li>
-              <Link href="">Resume</Link>
+              <Link href="#resume">Resume</Link>
             </li>
             <li>
               <Link href="">Work</Link>
@@ -79,10 +78,10 @@ const NavBar = () => {
                 </div>
                 <ul className="flex flex-col gap-5 items-end justify-center w-full">
                   <li className="bg-[#fdad16] p-2 rounded-l-full shadow-lg text-black w-[80%]">
-                    <Link href="">About me</Link>
+                    <Link href="#about-me">About me</Link>
                   </li>
                   <li className=" p-2 rounded-l-full text-white w-[80%]">
-                    <Link href="">Resume</Link>
+                    <Link href="#resume">Resume</Link>
                   </li>
                   <li className=" p-2 rounded-l-full text-white w-[80%]">
                     <Link href="">Work</Link>
