@@ -26,7 +26,7 @@ const NavBar = () => {
   }, [menuRef]);
 
   return (
-    <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md">
+    <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md z-10">
       <div className="flex items-center justify-between px-5 md:px-14 py-5">
         <div>
           <Link href="">
@@ -50,7 +50,8 @@ const NavBar = () => {
           </ul>
           <button
             className="md:hidden transition-all duration-300 relative"
-            onClick={() => setShowMenu(!showMenu)}>
+            onClick={() => setShowMenu(!showMenu)}
+          >
             {showMenu ? (
               <CloseIcon className="w-6 h-6 transition-all duration-300" />
             ) : (
@@ -60,7 +61,8 @@ const NavBar = () => {
           {showMenu && (
             <div
               ref={menuRef}
-              className="absolute top-0 left-0 h-screen  shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between  md:hidden">
+              className="absolute top-0 left-0 h-screen  shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between  md:hidden"
+            >
               <div className="flex flex-col gap-10">
                 <div className=" flex items-center px-4 justify-center  gap-2 mt-4">
                   <Image

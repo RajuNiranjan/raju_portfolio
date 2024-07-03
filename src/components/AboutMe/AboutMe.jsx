@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const AboutMe = () => {
   return (
-    <div className="h-full bg-[#f6eee1] w-full p-4">
+    <div className="md:h-[700px] bg-[#f6eee1] w-full p-4">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="flex flex-col gap-4 px-4 justify-center items-center h-screen">
           <div className="text-[34px] md:text-[54px]  font-bold font-serif">
