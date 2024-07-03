@@ -17,7 +17,7 @@ import Sql from "@/assets/skillIcons/SQL";
 import Ts from "@/assets/skillIcons/TS";
 import Tailwind from "@/assets/skillIcons/Tailwind";
 import React from "react";
-import TimeLineEdu from "./TimeLineEdu/TimeLine";
+import Education from "./Education/Education";
 import Experience from "./Experience/Experience";
 
 const skillsData = [
@@ -45,17 +45,15 @@ const Resume = () => {
     <div className="h-screen w-full p-10 bg-[#334b35]">
       <div className="grid grid-cols-1 md:grid-cols-2 font-medium text-[#f6eee1]">
         <div>
+          <h1>Education</h1>
           <div>
-            <h1>Education</h1>
-            <div className="w-full flex justify-start ">
-              <TimeLineEdu />
-            </div>
-            <div className="flex justify-center items-center">
-              <Experience />
-            </div>
+            <Education />
+          </div>
+          <div className="m-10 ">
+            <Experience />
           </div>
         </div>
-        <div className="my-36">
+        <div className="mt-36 flex flex-col items-start gap-4 ">
           <h1 className="text-[54px] text-[#fdad16] font-bold">
             Technical Skills
           </h1>
@@ -63,8 +61,7 @@ const Resume = () => {
             {skillsData.map((item, index) => (
               <h1
                 key={index}
-                className="bg-black px-4 py-1 rounded-full  w-max"
-              >
+                className="bg-black px-4 py-1 rounded-full  w-max">
                 {item}
               </h1>
             ))}
@@ -77,7 +74,7 @@ const Resume = () => {
               <Next />
             </div>
             <div className=" w-10 text-3xl h-10 flex justify-center items-center rounded-full">
-              <JS className="text-yellow-500" />
+              <JS className="text-[#fdad16]" />
             </div>
             <div className="w-10 text-3xl h-10 flex justify-center items-center rounded-full">
               <Ts className="text-blue-400 " />
@@ -115,7 +112,7 @@ const Resume = () => {
             <div className="bg-orange-600 w-10 text-3xl h-10 flex justify-center items-center rounded-full">
               <Git />
             </div>
-            <div className="bg-yellow-500 text-black w-10 text-3xl h-10 flex justify-center items-center rounded-full">
+            <div className="bg-[#fdad16] text-black w-10 text-3xl h-10 flex justify-center items-center rounded-full">
               <Linux />
             </div>
             <div className="bg-orange-600 w-10 text-3xl h-10 flex justify-center items-center rounded-full">

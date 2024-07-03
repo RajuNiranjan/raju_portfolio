@@ -44,14 +44,13 @@ const NavBar = () => {
             <li>
               <Link href="">Work</Link>
             </li>
-            <li className="bg-yellow-500 text-black font-bold p-2 rounded-full">
+            <li className="bg-[#fdad16] text-black font-bold p-2 rounded-full">
               <Link href="">Get in Touch</Link>
             </li>
           </ul>
           <button
             className="md:hidden transition-all duration-300 relative"
-            onClick={() => setShowMenu(!showMenu)}
-          >
+            onClick={() => setShowMenu(!showMenu)}>
             {showMenu ? (
               <CloseIcon className="w-6 h-6 transition-all duration-300" />
             ) : (
@@ -61,8 +60,7 @@ const NavBar = () => {
           {showMenu && (
             <div
               ref={menuRef}
-              className="absolute top-0 left-0 h-screen  shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between  md:hidden"
-            >
+              className="absolute top-0 left-0 h-screen  shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between  md:hidden">
               <div className="flex flex-col gap-10">
                 <div className=" flex items-center px-4 justify-center  gap-2 mt-4">
                   <Image
@@ -73,14 +71,14 @@ const NavBar = () => {
                     className="rounded-full"
                   />
                   <div>
-                    <h1 className="text-yellow-500 font-bold text-lg">
+                    <h1 className="text-[#fdad16] font-bold text-lg">
                       Niranjan Raju
                     </h1>
                     <small>Full Stack Developer</small>
                   </div>
                 </div>
                 <ul className="flex flex-col gap-5 items-end justify-center w-full">
-                  <li className="bg-yellow-500 p-2 rounded-l-full shadow-lg text-black w-[80%]">
+                  <li className="bg-[#fdad16] p-2 rounded-l-full shadow-lg text-black w-[80%]">
                     <Link href="">About me</Link>
                   </li>
                   <li className=" p-2 rounded-l-full text-white w-[80%]">
