@@ -58,15 +58,17 @@ const NavBar = () => {
             <li>
               <Link href="#work">Work</Link>
             </li>
-            <li className="relative bg-[#fdad16] text-black font-bold p-2 rounded-full">
-              <button
-                onClick={toggleGetInTouch}
-                className="cursor-pointer"
-                aria-label="Get in Touch"
-              >
+
+            <button
+              onClick={toggleGetInTouch}
+              className="cursor-pointer"
+              aria-label="Get in Touch"
+            >
+              <li className="relative bg-[#fdad16] text-black font-bold p-2 rounded-full">
                 Get in Touch
-              </button>
-            </li>
+              </li>
+            </button>
+
             {showGetInTouch && (
               <div
                 ref={getInTouchRef}
