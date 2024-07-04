@@ -2,6 +2,7 @@ import React from "react";
 import TodoWebApp from "@/assets/projectImgs/todo.png";
 import Image from "next/image";
 
+
 const projectsData = [
   {
     id: 7,

@@ -8,11 +8,12 @@ import Link from "next/link";
 import Raju from "@/assets/Raju.png";
 import Image from "next/image";
 import GitLab from "@/assets/skillIcons/GitLab";
+import { motion } from "framer-motion";
 
 const AboutMe = () => {
   return (
     <div id="about-me" className="md:h-[600px] bg-[#f6eee1] w-full p-4">
-      <div className="hidden md:block absolute top-14 font-londrina-outline text-[100px] tracking-[4px] font-medium text-yellow-600">
+      <div className="hidden md:block absolute top-14 font-londrina-outline  text-[100px] tracking-[4px] font-medium text-yellow-600">
         <p>ABOUT ME</p>
       </div>
       <div className="grid grid-cols-1  md:grid-cols-2">
@@ -61,12 +62,18 @@ const AboutMe = () => {
                 width={300}
                 height={300}
               />
-              <button className="hidden sm:block absolute top-28 text-xs font-medium bg-[#fdad16] p-2 rounded-full w-max left-[-30px] z-40">
-                See Projects
-              </button>
-              <button className="hidden sm:block absolute text-xs font-medium bottom-28 bg-[#fdad16] p-2 rounded-full w-max right-[-30px] z-40">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="hidden sm:block absolute top-28 text-xs font-medium bg-[#fdad16] p-2 rounded-full w-max left-[-30px] z-40">
+                <Link href="#work">See Projects</Link>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="hidden sm:block absolute text-xs font-medium bottom-28 bg-[#fdad16] p-2 rounded-full w-max right-[-30px] z-40">
                 Get in Touch
-              </button>
+              </motion.button>
               <div className="absolute h-40 w-40 bg-[#f6eee1] rounded-full top-14 left-[70px] lg:left-24" />
               <div className="absolute w-full h-[200px] bg-black bottom-[-120px] p-4 rounded-md">
                 <h1 className="text-[#f6eee1] text-[44px] font-bold ">

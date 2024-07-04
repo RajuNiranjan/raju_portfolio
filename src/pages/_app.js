@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar/NavBar";
 import "@/styles/globals.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, delay, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 export default function App({ Component, pageProps }) {
@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }) {
         exit="exitState"
         transition={{
           duration: 0.75,
+          delay: 1,
         }}
         variants={{
           initialState: {
@@ -24,8 +25,7 @@ export default function App({ Component, pageProps }) {
           },
           exitState: {},
         }}
-        className="w-full"
-      >
+        className="w-full">
         <NavBar />
         <Component {...pageProps} />
       </motion.div>
