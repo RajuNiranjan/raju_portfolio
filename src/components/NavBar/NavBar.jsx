@@ -25,7 +25,7 @@ const NavBar = () => {
   }, [menuRef]);
 
   return (
-    <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md z-10">
+    <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md z-50">
       <div className="flex items-center justify-between px-5 md:px-14 py-5">
         <div>
           <Link href="">

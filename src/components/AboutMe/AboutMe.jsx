@@ -5,6 +5,9 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 import Link from "next/link";
+import Raju from "@/assets/Raju.png";
+import Image from "next/image";
+import GitLab from "@/assets/skillIcons/GitLab";
 
 const AboutMe = () => {
   return (
@@ -23,7 +26,7 @@ const AboutMe = () => {
               recusandae ipsam excepturi nesciunt? Enim.
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4  h-14 w-max">
             <div className="h-10 w-10 text-blue-500   hover:h-14  hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
               <Link href="">
                 <LinkedInIcon />
@@ -34,15 +37,27 @@ const AboutMe = () => {
                 <GitHubIcon />
               </Link>
             </div>
+            <div className="h-10 w-10 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center  items-center rounded-full">
+              <Link href="">
+                <GitLab className="text-2xl text-orange-500" />
+              </Link>
+            </div>
           </div>
         </div>
         <div className="flex justify-center items-center">
           <div className="bottom-10 lg:-bottom-20 h-[450px] w-[320px]  md:w-[350px] bg-[#334b35] rounded-md shadow-md relative">
             <div>
-              <button className="hidden sm:block absolute top-28 text-xs font-medium bg-[#fdad16] p-2 rounded-full w-max left-[-30px]">
+              <Image
+                className="z-10 absolute top-1 right-0"
+                src={Raju}
+                alt="user_Raju"
+                width={300}
+                height={300}
+              />
+              <button className="hidden sm:block absolute top-28 text-xs font-medium bg-[#fdad16] p-2 rounded-full w-max left-[-30px] z-40">
                 See Projects
               </button>
-              <button className="hidden sm:block absolute text-xs font-medium bottom-28 bg-[#fdad16] p-2 rounded-full w-max right-[-30px]">
+              <button className="hidden sm:block absolute text-xs font-medium bottom-28 bg-[#fdad16] p-2 rounded-full w-max right-[-30px] z-40">
                 Get in Touch
               </button>
               <div className="absolute h-40 w-40 bg-[#f6eee1] rounded-full top-14 left-[70px] lg:left-24" />
