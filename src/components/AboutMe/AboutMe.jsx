@@ -12,33 +12,40 @@ import GitLab from "@/assets/skillIcons/GitLab";
 const AboutMe = () => {
   return (
     <div id="about-me" className="md:h-[600px] bg-[#f6eee1] w-full p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="hidden md:block absolute top-14 font-londrina-outline text-[100px] tracking-[4px] font-medium text-yellow-600">
+        <p>ABOUT ME</p>
+      </div>
+      <div className="grid grid-cols-1  md:grid-cols-2">
         <div className="flex my-20 h-max flex-col  gap-4 px-4  ">
           <div className="text-[34px] md:text-[54px]  font-bold font-serif">
             <h1>Hello,</h1>
             <h1>I&apos;m Niranjan !</h1>
           </div>
           <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-              officia sequi, nesciunt, deleniti aperiam tenetur ea ratione
-              recusandae ipsa itaque sit consequuntur. Aperiam nisi deleniti
-              recusandae ipsam excepturi nesciunt? Enim.
-            </p>
+            <h1>
+              Hello, I&apos;m Raju, a passionate{" "}
+              <span className="font-bold">Full-Stack Developer</span> with
+              expertise in React.js, Next.js, TailWindCSS, Redux, I craft
+              intuitive web experiences that exceed user expectations. My skills
+              span across the entire stack, including Node.js, Express.js and
+              MongoDB, enabling me to architect scalable solutions. I thrive on
+              continuous learning, collaboration, and delivering projects that
+              innovate and transform digital experiences.
+            </h1>
           </div>
           <div className="flex items-center gap-4  h-14 w-max">
             <div className="h-10 w-10 text-blue-500   hover:h-14  hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
-              <Link href="">
+              <Link href="https://www.linkedin.com/in/raju-niranjan/">
                 <LinkedInIcon />
               </Link>
             </div>
             <div className="h-10 w-10 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
-              <Link href="">
+              <Link href="https://github.com/RajuNiranjan">
                 <GitHubIcon />
               </Link>
             </div>
             <div className="h-10 w-10 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center  items-center rounded-full">
-              <Link href="">
+              <Link href="https://gitlab.com/tnraju">
                 <GitLab className="text-2xl text-orange-500" />
               </Link>
             </div>

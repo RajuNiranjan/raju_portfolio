@@ -15,7 +15,10 @@ const Resume = () => {
             <Experience />
           </div>
         </div>
-        <div className="mt-36">
+        <div>
+          <div className="hidden md:block  font-londrina-outline text-[100px] tracking-[4px] font-medium text-yellow-600">
+            <p>RESUME</p>
+          </div>
           <div>
             <TechnicalSkills />
           </div>
