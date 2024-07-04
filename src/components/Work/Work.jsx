@@ -1,9 +1,10 @@
 import React from "react";
+import ProjectCard from "./ProjectCard/ProjectCard";
 
 const Work = () => {
   return (
-    <div id="work" className="h-screen w-full bg-[#f6eee1]">
-      Work
+    <div id="work" className="w-full bg-[#f6eee1]">
+      <ProjectCard />
     </div>
   );
 };

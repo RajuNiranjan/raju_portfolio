@@ -1,5 +1,8 @@
 import React, { useState, useRef } from "react";
 import emailjs from "emailjs-com";
+import Link from "next/link";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 const GetInTouch = () => {
   const [contactFormData, setContactFormData] = useState({
@@ -7,6 +10,8 @@ const GetInTouch = () => {
     from_email: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null); // State to hold success/error message
 
   const ref = useRef();
 
@@ -20,6 +25,7 @@ const GetInTouch = () => {
 
   const handleSumbmitContactMeForm = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     emailjs
       .sendForm(
@@ -31,6 +37,8 @@ const GetInTouch = () => {
       .then(
         (result) => {
           console.log(result.text);
+          setLoading(false);
+          setMessage("Email sent successfully!");
           setContactFormData({
             from_name: "",
             from_email: "",
@@ -39,16 +47,30 @@ const GetInTouch = () => {
         },
         (error) => {
           console.log(error.text);
+          setLoading(false);
+          setMessage("Failed to send email. Please try again later.");
         }
       );
   };
 
   return (
-    <div className="w-full h-[650px] bg-yellow-600 shadow-md border rounded-t-xl p-10 transition-all duration-500 grid grid-cols-1 md:grid-cols-2">
-      <div>
-        <h1 className="font-londrina-outline text-[54px] text-black font-medium tracking-wider">
+    <div className="w-full h-[650px] bg-yellow-600 shadow-md border rounded-t-xl p-4 md:p-10 transition-all duration-500 grid grid-cols-1 md:grid-cols-2">
+      <div className="flex flex-col justify-start items-center gap-4 ">
+        <h1 className="font-londrina-outline  text-4xl  md:text-[54px] text-black font-medium tracking-wider">
           Contact Me
         </h1>
+        <div className="flex justify-center items-center gap-4  h-14 w-max">
+          <div className="h-10 w-10 text-red-500 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
+            <a href="mailto:rajuniranjan1910@gmail.com">
+              <MailOutlineIcon />
+            </a>
+          </div>
+          <div className="h-10 w-10 text-blue-500   hover:h-14  hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
+            <Link href="https://www.linkedin.com/in/raju-niranjan/">
+              <LinkedInIcon />
+            </Link>
+          </div>
+        </div>
       </div>
       <div>
         <form ref={ref} onSubmit={handleSumbmitContactMeForm}>
@@ -58,6 +80,7 @@ const GetInTouch = () => {
                 User Name
               </label>
               <input
+                required
                 name="from_name"
                 value={contactFormData.from_name}
                 onChange={onChangeInput}
@@ -70,6 +93,7 @@ const GetInTouch = () => {
                 Email
               </label>
               <input
+                required
                 name="from_email"
                 value={contactFormData.from_email}
                 onChange={onChangeInput}
@@ -79,22 +103,35 @@ const GetInTouch = () => {
             </div>
             <div className="flex flex-col">
               <label htmlFor="message" className="text-black font-normal">
-                Description
+                Message
               </label>
               <textarea
+                required
                 name="message"
                 value={contactFormData.message}
                 onChange={onChangeInput}
-                className="h-40 resize-none p-2 rounded-md bg-[#334b35] text-white text-xl focus:outline-none"
+                className="md:h-40 resize-none p-2 rounded-md bg-[#334b35] text-white text-xl focus:outline-none"
                 id=""
               />
             </div>
             <button
               type="submit"
-              className="bg-[#334b35]  p-4 rounded-md text-xl font-bold"
+              className="bg-[#334b35] p-4 rounded-md text-xl font-bold"
+              disabled={loading}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+            {message && (
+              <p
+                className={`text-lg mt-4 ${
+                  message.startsWith("Email sent")
+                    ? "text-green-600"
+                    : "text-red-600"
+                }`}
+              >
+                {message}
+              </p>
+            )}
           </div>
         </form>
       </div>

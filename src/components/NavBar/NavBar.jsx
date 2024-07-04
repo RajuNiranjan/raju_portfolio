@@ -37,11 +37,20 @@ const NavBar = () => {
 
   const toggleGetInTouch = () => {
     setShowGetInTouch(true);
+    setShowMenu(false);
   };
 
   return (
-    <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md z-50">
-      <div className="flex items-center justify-between px-5 md:px-14 py-5">
+    <nav className=" bg-[#004736] text-white font-medium sticky top-0 shadow-md z-50">
+      <div className="relative flex items-center justify-between px-5 md:px-14 py-5">
+        {showGetInTouch && (
+          <div
+            ref={getInTouchRef}
+            className="absolute md:hidden w-full left-0 -bottom-[100vh]  px-4"
+          >
+            <GetInTouch />
+          </div>
+        )}
         <div>
           <Link href="/">
             <h1 className="hidden md:block cursor-pointer">Niranjan Raju</h1>
@@ -120,13 +129,19 @@ const NavBar = () => {
                 )}
                 <ul className="flex flex-col gap-5 items-end justify-center w-full">
                   <li className="bg-[#fdad16] p-2 rounded-l-full shadow-lg text-black w-[80%]">
-                    <Link href="#about-me">About me</Link>
+                    <Link href="#about-me" onClick={() => setShowMenu(false)}>
+                      About me
+                    </Link>
                   </li>
                   <li className="p-2 rounded-l-full text-white w-[80%]">
-                    <Link href="#resume">Resume</Link>
+                    <Link href="#resume" onClick={() => setShowMenu(false)}>
+                      Resume
+                    </Link>
                   </li>
                   <li className="p-2 rounded-l-full text-white w-[80%]">
-                    <Link href="#work">Work</Link>
+                    <Link href="#work" onClick={() => setShowMenu(false)}>
+                      Work
+                    </Link>
                   </li>
                   <li className="relative p-2 rounded-l-full text-white w-[80%]">
                     <button
@@ -136,14 +151,6 @@ const NavBar = () => {
                     >
                       Get in Touch
                     </button>
-                    {/* {showGetInTouch && (
-                      <div
-                        ref={getInTouchRef}
-                        className="absolute md:hidden w-full bg-red-500 left-0 -bottom-[100vh] px-4"
-                      >
-                        <GetInTouch />
-                      </div>
-                    )} */}
                   </li>
                 </ul>
               </div>
