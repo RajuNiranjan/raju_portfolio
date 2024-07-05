@@ -18,13 +18,13 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setShowMenu(false);
-      }
       if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
         getInTouchRef.current &&
         !getInTouchRef.current.contains(event.target)
       ) {
+        setShowMenu(false);
         setShowGetInTouch(false);
       }
     };
@@ -104,6 +104,7 @@ const NavBar = () => {
   return (
     <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md z-50">
       <div className="relative flex items-center justify-between px-5 md:px-14 py-5">
+        {/* MOBILE GET IN TOUCH */}
         <AnimatePresence>
           {showGetInTouch && (
             <motion.div
@@ -112,7 +113,14 @@ const NavBar = () => {
               animate="open"
               exit="closed"
               variants={getInTouchVariants}
-              className="absolute md:hidden w-full left-0 top-16 px-4">
+              className="absolute md:hidden w-full left-0 top-16 px-4"
+            >
+              <p
+                onClick={() => setShowGetInTouch(false)}
+                className="bg-black rounded-full h-7 w-7 flex justify-center items-center"
+              >
+                X
+              </p>
               <GetInTouch />
             </motion.div>
           )}
@@ -138,16 +146,33 @@ const NavBar = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               onClick={toggleGetInTouch}
               className="cursor-pointer"
-              aria-label="Get in Touch">
+              aria-label="Get in Touch"
+            >
               <li className="relative bg-[#fdad16] text-black font-bold p-2 rounded-full">
                 Get in Touch
               </li>
             </motion.button>
+            {/* DESK TOP */}
+            <AnimatePresence>
+              {showGetInTouch && (
+                <motion.div
+                  ref={getInTouchRef}
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={getInTouchVariants}
+                  className="absolute hidden md:block w-full left-0 top-16 px-4"
+                >
+                  <GetInTouch />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </ul>
           <button
             className="sm:hidden transition-all duration-300 relative"
             onClick={() => setShowMenu(!showMenu)}
-            aria-label="Toggle Menu">
+            aria-label="Toggle Menu"
+          >
             {showMenu ? (
               <CloseIcon className="w-6 h-6 transition-all duration-300" />
             ) : (
@@ -162,7 +187,8 @@ const NavBar = () => {
                 animate="open"
                 exit="closed"
                 variants={menuVariants}
-                className="absolute top-0 left-0 h-screen shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between md:hidden">
+                className="absolute top-0 left-0 h-screen shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between md:hidden"
+              >
                 <div className="flex flex-col gap-10">
                   <div className="flex items-center px-4 justify-center gap-2 mt-4">
                     <Image
@@ -179,17 +205,6 @@ const NavBar = () => {
                       <small>Full Stack Developer</small>
                     </div>
                   </div>
-                  {showGetInTouch && (
-                    <motion.div
-                      ref={getInTouchRef}
-                      initial="closed"
-                      animate="open"
-                      exit="closed"
-                      variants={getInTouchVariants}
-                      className="absolute w-full left-0 top-16 px-4">
-                      <GetInTouch />
-                    </motion.div>
-                  )}
                   <ul className="flex flex-col gap-5 items-end justify-center w-full">
                     {["About me", "Resume", "Work", "Get in Touch"].map(
                       (text, i) => (
@@ -203,14 +218,16 @@ const NavBar = () => {
                           className={`${
                             text === "Get in Touch"
                               ? "bg-[#fdad16] text-black"
-                              : "text-white"
-                          } p-2 rounded-l-full shadow-lg w-[80%]`}>
+                              : "text-white shadow border border-r-0"
+                          } p-2 rounded-l-full shadow-lg w-[80%]`}
+                        >
                           <Link
                             href={`#${text.toLowerCase().replace(" ", "-")}`}
                             onClick={() => {
                               setShowMenu(false);
                               if (text === "Get in Touch") toggleGetInTouch();
-                            }}>
+                            }}
+                          >
                             {text}
                           </Link>
                         </motion.li>

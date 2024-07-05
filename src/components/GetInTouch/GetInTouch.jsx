@@ -54,7 +54,7 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className="w-full h-[650px] bg-yellow-600 shadow-md border rounded-t-xl p-4 md:p-10 transition-all duration-500 grid grid-cols-1 md:grid-cols-2">
+    <div className="w-full h-[650px] bg-yellow-600 shadow-md border rounded-xl p-4 md:p-10 transition-all duration-500 grid grid-cols-1 md:grid-cols-2">
       <div className="flex flex-col justify-start items-center gap-4 ">
         <h1 className="font-londrina-outline  text-4xl  md:text-[54px] text-black font-medium tracking-wider">
           Contact Me
