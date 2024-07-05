@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const TextAnimation = ({ text }) => {
   return (
     <section>
-      <FlipLink href="#">{text}</FlipLink>
+      <FlipLink>{text}</FlipLink>
     </section>
   );
 };
@@ -12,12 +12,24 @@ const TextAnimation = ({ text }) => {
 const DURATION = 0.5;
 const STAGGER = 0.025;
 
-const FlipLink = ({ children, href }) => {
+const FlipLink = ({ children }) => {
+  const [animationState, setAnimationState] = useState("initial");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimationState("hovered");
+      setTimeout(() => {
+        setAnimationState("initial");
+      }, DURATION * 1000 + STAGGER * children.length * 1000);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [children]);
+
   return (
     <motion.a
       initial="initial"
-      whileHover="hovered"
-      href={href}
+      animate={animationState}
       className="relative block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-7xl md:text-5xl lg:text-5xl"
       style={{
         lineHeight: 0.75,
@@ -72,4 +84,5 @@ const FlipLink = ({ children, href }) => {
     </motion.a>
   );
 };
+
 export default TextAnimation;

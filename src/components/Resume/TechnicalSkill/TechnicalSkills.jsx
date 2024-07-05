@@ -84,7 +84,7 @@ const generateSquares = (isMounted) => {
       key={item.id}
       layout
       transition={{ duration: 1.5, type: "spring" }}
-      className={`w-24 h-24 gap-4 flex justify-center items-center ${item.color}`}
+      className={`w-[75px] h-[75px]  sm:w-24 sm:h-24 gap-4 flex justify-center items-center ${item.color}`}
     >
       <item.component className="w-12 h-12" />
     </motion.div>
@@ -117,7 +117,7 @@ const ShuffleGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-9 grid-rows-4 gap-4">
+    <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-87 grid-rows-4 gap-4">
       {squares}
     </div>
   );
