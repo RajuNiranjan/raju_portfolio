@@ -54,9 +54,9 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className="w-full h-[650px] bg-yellow-600 shadow-md border rounded-xl p-4 md:p-10 transition-all duration-500 grid grid-cols-1 md:grid-cols-2">
+    <div className="w-full text-white h-full p-4 transition-all duration-500 grid grid-cols-1 md:grid-cols-2">
       <div className="flex flex-col justify-start items-center gap-4 ">
-        <h1 className="font-londrina-outline  text-4xl  md:text-[54px] text-black font-medium tracking-wider">
+        <h1 className="font-londrina-outline  text-4xl  md:text-[54px] text-white font-medium tracking-wider">
           Contact Me
         </h1>
         <div className="flex justify-center items-center gap-4  h-14 w-max">
@@ -76,7 +76,7 @@ const GetInTouch = () => {
         <form ref={ref} onSubmit={handleSumbmitContactMeForm}>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
-              <label htmlFor="from_name" className="text-black font-normal">
+              <label htmlFor="from_name" className="text-white font-normal">
                 User Name
               </label>
               <input
@@ -85,11 +85,11 @@ const GetInTouch = () => {
                 value={contactFormData.from_name}
                 onChange={onChangeInput}
                 type="text"
-                className="h-14 rounded-md p-2 bg-[#334b35] text-white text-xl focus:outline-none"
+                className="h-14 rounded-md p-2 text-black  text-xl focus:outline-none"
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="from_email" className="text-black font-normal">
+              <label htmlFor="from_email" className="text-white font-normal">
                 Email
               </label>
               <input
@@ -98,11 +98,11 @@ const GetInTouch = () => {
                 value={contactFormData.from_email}
                 onChange={onChangeInput}
                 type="email"
-                className="h-14 rounded-md p-2 bg-[#334b35] text-white text-xl focus:outline-none"
+                className="h-14 rounded-md p-2 text-black text-xl focus:outline-none"
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="message" className="text-black font-normal">
+              <label htmlFor="message" className="text-white  font-normal">
                 Message
               </label>
               <textarea
@@ -110,15 +110,14 @@ const GetInTouch = () => {
                 name="message"
                 value={contactFormData.message}
                 onChange={onChangeInput}
-                className="md:h-40 resize-none p-2 rounded-md bg-[#334b35] text-white text-xl focus:outline-none"
+                className="md:h-40 resize-none p-2 rounded-md text-black  text-xl focus:outline-none"
                 id=""
               />
             </div>
             <button
               type="submit"
-              className="bg-[#334b35] p-4 rounded-md text-xl font-bold"
-              disabled={loading}
-            >
+              className="bg-yellow-500 text-black font-mono p-4 rounded-md text-2xl font-bold"
+              disabled={loading}>
               {loading ? "Sending..." : "Send Message"}
             </button>
             {message && (
@@ -127,8 +126,7 @@ const GetInTouch = () => {
                   message.startsWith("Email sent")
                     ? "text-green-600"
                     : "text-red-600"
-                }`}
-              >
+                }`}>
                 {message}
               </p>
             )}

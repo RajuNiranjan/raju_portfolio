@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <AboutMe />
       <Resume />
-      <Work />
+      {/* <Work /> */}
     </>
   );
 };
