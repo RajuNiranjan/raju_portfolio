@@ -1,12 +1,12 @@
 import React from "react";
 import ProjectCard from "./ProjectCard/ProjectCard";
 
-const Work = () => {
+const Projects = () => {
   return (
-    <div id="work" className="w-full sm:pt-28 bg-[#f6eee1]">
+    <div id="projects" className="h-96 w-full bg-[#f6eee1]">
       <ProjectCard />
     </div>
   );
 };
 
-export default Work;
+export default Projects;

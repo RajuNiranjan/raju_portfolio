@@ -179,7 +179,7 @@ const NavBar = () => {
               <Link href="#resume">Resume</Link>
             </li>
             <li>
-              <Link href="#work">Work</Link>
+              <Link href="#projects">Projects</Link>
             </li>
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -226,7 +226,7 @@ const NavBar = () => {
                     </div>
                   </div>
                   <ul className="flex flex-col gap-5 items-end justify-center w-full">
-                    {["About me", "Resume", "Work", "Get in Touch"].map(
+                    {["About me", "Resume", "Projects", "Get in Touch"].map(
                       (text, i) => (
                         <Link
                           key={i}
