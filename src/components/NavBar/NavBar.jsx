@@ -6,6 +6,7 @@ import sideMenuUserImg from "@/assets/sideMenuUserImg.png";
 import Image from "next/image";
 import GetInTouch from "../GetInTouch/GetInTouch";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import TextAnimation from "./TextAnimation/TextAnimation";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -126,8 +127,9 @@ const NavBar = () => {
           )}
         </AnimatePresence>
         <div>
-          <Link href="/">
-            <h1 className="hidden sm:block cursor-pointer">Niranjan Raju</h1>
+          <Link href="/" className="hidden sm:block">
+            <TextAnimation />
+            {/* <h1 className="hidden sm:block cursor-pointer">Niranjan Raju</h1> */}
           </Link>
         </div>
         <div>
@@ -199,9 +201,7 @@ const NavBar = () => {
                       className="rounded-full"
                     />
                     <div>
-                      <h1 className="text-[#fdad16] font-bold text-lg">
-                        Niranjan Raju
-                      </h1>
+                      <TextAnimation />
                       <small>Full Stack Developer</small>
                     </div>
                   </div>
