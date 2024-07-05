@@ -208,29 +208,29 @@ const NavBar = () => {
                   <ul className="flex flex-col gap-5 items-end justify-center w-full">
                     {["About me", "Resume", "Work", "Get in Touch"].map(
                       (text, i) => (
-                        <motion.li
+                        <Link
                           key={i}
-                          custom={i}
-                          initial="closed"
-                          animate="open"
-                          exit="closed"
-                          variants={itemVariants}
+                          href={`#${text.toLowerCase().replace(" ", "-")}`}
+                          onClick={() => {
+                            setShowMenu(false);
+                            if (text === "Get in Touch") toggleGetInTouch();
+                          }}
                           className={`${
                             text === "Get in Touch"
                               ? "bg-[#fdad16] text-black"
                               : "text-white shadow border border-r-0"
                           } p-2 rounded-l-full shadow-lg w-[80%]`}
                         >
-                          <Link
-                            href={`#${text.toLowerCase().replace(" ", "-")}`}
-                            onClick={() => {
-                              setShowMenu(false);
-                              if (text === "Get in Touch") toggleGetInTouch();
-                            }}
+                          <motion.li
+                            custom={i}
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            variants={itemVariants}
                           >
                             {text}
-                          </Link>
-                        </motion.li>
+                          </motion.li>
+                        </Link>
                       )
                     )}
                   </ul>
