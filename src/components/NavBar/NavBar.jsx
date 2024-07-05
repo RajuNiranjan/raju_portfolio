@@ -143,19 +143,6 @@ const NavBar = () => {
                 Get in Touch
               </li>
             </motion.button>
-            <AnimatePresence>
-              {showGetInTouch && (
-                <motion.div
-                  ref={getInTouchRef}
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                  variants={getInTouchVariants}
-                  className="absolute hidden md:block w-full left-0 top-16 px-4">
-                  <GetInTouch />
-                </motion.div>
-              )}
-            </AnimatePresence>
           </ul>
           <button
             className="sm:hidden transition-all duration-300 relative"
