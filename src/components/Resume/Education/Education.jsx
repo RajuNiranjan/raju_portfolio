@@ -1,9 +1,14 @@
+import TextAnimation from "@/components/TextAnimation/TextAnimation";
 import React from "react";
 
 const Education = () => {
   return (
     <div className=" text-white ">
-      <h1 className="text-4xl text-yellow-500 font-bold">Education</h1>
+      <div className="text-[#fdad16]">
+        <TextAnimation text="Education" />
+      </div>
+
+      {/* <h1 className="text-4xl text-yellow-500 font-bold">Education</h1> */}
       <div className="my-10">
         <ol className="relative border-s border-[#fdad16]">
           <li className="mb-10 ms-4  ">

@@ -1,3 +1,4 @@
+import TextAnimation from "@/components/TextAnimation/TextAnimation";
 import React from "react";
 
 const ExperienceData = [
@@ -41,7 +42,9 @@ const ExperienceData = [
 const Experience = () => {
   return (
     <div className="w-full h-full rounded-xl shadow-md text-black p-5  bg-yellow-600">
-      <h1 className="text-4xl font-bold">Experience</h1>
+      <div>
+        <TextAnimation text="Experience" />
+      </div>
       <div className="my-10">
         <ol className="relative border-s border-black">
           {ExperienceData.map((item, index) => (
@@ -65,7 +68,8 @@ const Experience = () => {
                     {item.technologies.map((item, index) => (
                       <span
                         key={index}
-                        className="bg-black text-white px-2 py-1 rounded-md">
+                        className="bg-black text-white px-2 py-1 rounded-md"
+                      >
                         &bull; {item}
                       </span>
                     ))}
