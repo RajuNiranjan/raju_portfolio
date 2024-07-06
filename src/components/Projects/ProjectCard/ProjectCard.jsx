@@ -8,6 +8,9 @@ import tsEcomm from "@/assets/projectImgs/ts-ecomm.png";
 import weather from "@/assets/projectImgs/weather.png";
 import portfolio from "@/assets/projectImgs/portfolio.png";
 import Link from "next/link";
+import { animate, motion, useMotionValue } from "framer-motion";
+import { useEffect, useState } from "react";
+import useMeasure from "react-use-measure";
 
 const ProjectDetails = [
   {
@@ -67,39 +70,91 @@ const ProjectDetails = [
 ];
 
 const ProjectCard = () => {
+  const FAST_DURATION = 25;
+  const SLOW_DURATION = 75;
+
+  const [duration, setDuration] = useState(FAST_DURATION);
+  let [ref, { width }] = useMeasure();
+
+  const xTranslation = useMotionValue(0);
+
+  const [mustFinish, setMustFinish] = useState(false);
+  const [rerender, setRerender] = useState(false);
+
+  useEffect(() => {
+    let controls;
+    let finalPosition = -width / 2 - 8;
+
+    if (mustFinish) {
+      controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
+        ease: "linear",
+        duration: duration * (1 - xTranslation.get() / finalPosition),
+        onComplete: () => {
+          setMustFinish(false);
+          setRerender(!rerender);
+        },
+      });
+    } else {
+      controls = animate(xTranslation, [0, finalPosition], {
+        ease: "linear",
+        duration: duration,
+        repeat: Infinity,
+        repeatType: "loop",
+        repeatDelay: 0,
+      });
+    }
+
+    return controls?.stop;
+  }, [rerender, xTranslation, duration, width]);
+
   return (
-    <div className="flex flex-col gap-4">
-      {ProjectDetails.map((item, index) => (
-        <div
-          key={index}
-          className="rounded-md overflow-hidden h-[150px] w-[650px] grid grid-cols-2">
-          <Link href={item.demoUrl}>
-            <div className="relative overflow-hidden">
-              <Image
-                src={item.img}
-                alt=""
-                width={500}
-                height={500}
-                className="w-full h-full transform transition-transform duration-300 hover:scale-[1.05]"
-              />
-            </div>
-          </Link>
-          <div className="bg-black bg-opacity-80 p-2 overflow-clip">
-            <div className="flex gap-1">
-              <h1 className="font-bold text-white tracking-wider">
-                {item.title}
-              </h1>
+    <main className="py-8">
+      <motion.div
+        className="absolute left-0 flex gap-4"
+        style={{ x: xTranslation }}
+        ref={ref}
+        onHoverStart={() => {
+          setMustFinish(true);
+          setDuration(SLOW_DURATION);
+        }}
+        onHoverEnd={() => {
+          setMustFinish(true);
+          setDuration(FAST_DURATION);
+        }}>
+        <div className="flex  gap-4">
+          {ProjectDetails.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-md overflow-hidden h-[150px] w-[650px] grid grid-cols-2">
               <Link href={item.demoUrl}>
-                <LaunchIcon className="text-xs hover:text-sm transition-all duration-300 text-white opacity-50 hover:opacity-100" />
+                <div className="relative overflow-hidden">
+                  <Image
+                    src={item.img}
+                    alt=""
+                    width={500}
+                    height={500}
+                    className="w-full h-full transform transition-transform duration-300 hover:scale-[1.05]"
+                  />
+                </div>
               </Link>
+              <div className="bg-black bg-opacity-80 p-2 overflow-clip">
+                <div className="flex gap-1">
+                  <h1 className="font-bold text-white tracking-wider">
+                    {item.title}
+                  </h1>
+                  <Link href={item.demoUrl}>
+                    <LaunchIcon className="text-xs hover:text-sm transition-all duration-300 text-white opacity-50 hover:opacity-100" />
+                  </Link>
+                </div>
+                <small className="text-white line-clamp-6 text-opacity-30 hover:text-opacity-80 leading-[16px]">
+                  {item.descripton}
+                </small>
+              </div>
             </div>
-            <small className="text-white line-clamp-6 text-opacity-30 hover:text-opacity-80 leading-[16px]">
-              {item.descripton}
-            </small>
-          </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </motion.div>
+    </main>
   );
 };
 
