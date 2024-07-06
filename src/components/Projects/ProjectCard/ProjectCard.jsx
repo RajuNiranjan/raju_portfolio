@@ -1,30 +1,104 @@
 import Image from "next/image";
+import LaunchIcon from "@mui/icons-material/Launch";
 import React from "react";
 import todo from "@/assets/projectImgs/todo.png";
+import klubstack from "@/assets/projectImgs/klubstack.png";
+import mentorsklub from "@/assets/projectImgs/mentorsklub.png";
+import tsEcomm from "@/assets/projectImgs/ts-ecomm.png";
+import weather from "@/assets/projectImgs/weather.png";
+import portfolio from "@/assets/projectImgs/portfolio.png";
+import Link from "next/link";
+
+const ProjectDetails = [
+  {
+    id: 1,
+    title: "Mentorsklub",
+    img: mentorsklub,
+    descripton:
+      " Designed and developed secure user registration and login functionality with JWT-based authentication, ensuring robust security and seamless user experience. Engineered CRUD operations for comprehensive user management, including specific subparts for mentee and mentor profiles, enhancing overall system organization and functionality.",
+    gitUrl: "https://github.com/Abhisek0721/mentorsklub-frontend",
+    demoUrl: "https://mentorsklub.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Klub Stack",
+    img: klubstack,
+    descripton:
+      "Built a marketing tool klubstack using React.js, Next.js, and Tailwind CSS, with a focus on creating an interactive and engaging user interface. Designed and developed a highly interactive UI, enhancing user experience.",
+    gitUrl: "",
+    demoUrl: "https://app.klubstack.com/",
+  },
+  {
+    id: 3,
+    title: "E-Commerce Web App",
+    img: tsEcomm,
+    descripton:
+      "Clean, easy-to-use navigation for effortless exploration of product categories and a consistent, visually appealing experience across all devices.• Implemented state management using Redux Toolkit, resulting in a 20% increase in userengagement Designed a visually appealing and intuitive UI with Tailwind CSS and Material UI. Reduced the page load times by 15% and enhancing overall application performance",
+    gitUrl: "https://github.com/RajuNiranjan/ts-ecomm-front",
+    demoUrl: "https://ts-ecomm-nine.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "Personal Portfolio",
+    img: portfolio,
+    descripton:
+      "Sleek Next.js portfolio showcasing creativity, powered by Tailwind CSS, ensuring seamless, responsive design excellence.",
+    gitUrl: "https://github.com/RajuNiranjan/portfolio-2024",
+    demoUrl: "https://rajuportfolio.vercel.app/",
+  },
+  {
+    id: 4,
+    title: "Weather Web App",
+    img: weather,
+    descripton:
+      "Dynamic React weather app leveraging API data, delivering accurate forecasts with intuitive design, enhancing your daily planning effortlessly.",
+    gitUrl: "https://github.com/RajuNiranjan/weather-app",
+    demoUrl: "https://weather-app-jet-sigma.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "Todo Web App",
+    img: todo,
+    descripton:
+      "Developed a To-Do app using React and Tailwind CSS, enabling seamless CRUD operations. The app provides an intuitive interface for users to create, read, update, and delete tasks. This project highlights my skills in front-end development and efficient UI design.",
+    gitUrl: "https://github.com/RajuNiranjan/todoapp",
+    demoUrl: "https://todoapp-tan-iota.vercel.app/",
+  },
+];
 
 const ProjectCard = () => {
   return (
-    <div>
-      <div className=" rounded-md overflow-hidden h-[250px] w-[650px] grid grid-cols-2">
-        <div>
-          <Image
-            src={todo}
-            alt=""
-            width={500}
-            height={500}
-            className="w-full h-full object-cover "
-          />
+    <div className="flex flex-col gap-4">
+      {ProjectDetails.map((item, index) => (
+        <div
+          key={index}
+          className="rounded-md overflow-hidden h-[150px] w-[650px] grid grid-cols-2">
+          <Link href={item.demoUrl}>
+            <div className="relative overflow-hidden">
+              <Image
+                src={item.img}
+                alt=""
+                width={500}
+                height={500}
+                className="w-full h-full transform transition-transform duration-300 hover:scale-[1.05]"
+              />
+            </div>
+          </Link>
+          <div className="bg-black bg-opacity-80 p-2 overflow-clip">
+            <div className="flex gap-1">
+              <h1 className="font-bold text-white tracking-wider">
+                {item.title}
+              </h1>
+              <Link href={item.demoUrl}>
+                <LaunchIcon className="text-xs hover:text-sm transition-all duration-300 text-white opacity-50 hover:opacity-100" />
+              </Link>
+            </div>
+            <small className="text-white line-clamp-6 text-opacity-30 hover:text-opacity-80 leading-[16px]">
+              {item.descripton}
+            </small>
+          </div>
         </div>
-        <div className="bg-black  bg-opacity-80 p-1 overflow-clip">
-          <h1 className="font-bold text-white">Todo Web Application</h1>
-          <small className="line-clamp-5 text-white text-opacity-30 hover:text-opacity-80 leading-[16px] ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-            dolor vitae fugiat velit sint odio sunt nemo sit nesciunt,
-            temporibus omnis delectus reiciendis sapiente dignissimos voluptas
-            atque dolorum deleniti libero?
-          </small>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
