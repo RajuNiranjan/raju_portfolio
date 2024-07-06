@@ -92,24 +92,24 @@ const NavBar = () => {
   const year = new Date().getFullYear();
   const menuControls = useAnimation();
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        !event.target.matches(".menu-toggle")
-      ) {
-        setShowMenu(false);
-        setShowGetInTouch(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (
+  //       menuRef.current &&
+  //       !menuRef.current.contains(event.target) &&
+  //       !event.target.matches(".menu-toggle")
+  //     ) {
+  //       setShowMenu(false);
+  //       setShowGetInTouch(false);
+  //     }
+  //   };
 
-    document.addEventListener("mousedown", handleClickOutside);
+  //   document.addEventListener("mousedown", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (showMenu || showGetInTouch) {
