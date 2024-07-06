@@ -92,25 +92,6 @@ const NavBar = () => {
   const year = new Date().getFullYear();
   const menuControls = useAnimation();
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (
-  //       menuRef.current &&
-  //       !menuRef.current.contains(event.target) &&
-  //       !event.target.matches(".menu-toggle")
-  //     ) {
-  //       setShowMenu(false);
-  //       setShowGetInTouch(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
-
   useEffect(() => {
     if (showMenu || showGetInTouch) {
       document.body.style.overflow = "hidden";
@@ -210,9 +191,9 @@ const NavBar = () => {
                 animate="open"
                 exit="closed"
                 variants={menuVariants}
-                className="absolute top-0 left-0 h-screen shadow-sm bg-[#004736] w-[60%] flex flex-col justify-between md:hidden">
-                <div className="flex flex-col gap-10">
-                  <div className="flex items-center px-4 justify-center gap-2 mt-4">
+                className="absolute top-0 left-0 h-screen shadow-sm bg-[#004736] w-[65%] flex flex-col justify-between md:hidden">
+                <div className="flex flex-col gap-10 w-full">
+                  <div className="flex w-full  items-center px-4  gap-2 mt-4">
                     <Image
                       src={sideMenuUserImg}
                       alt=""

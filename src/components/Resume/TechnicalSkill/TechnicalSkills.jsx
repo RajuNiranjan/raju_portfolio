@@ -77,15 +77,13 @@ const shuffle = (array) => {
 };
 
 const generateSquares = (isMounted) => {
-  // Return the static order if not mounted to avoid hydration errors
   const data = isMounted ? shuffle(skillsData) : skillsData;
   return data.map((item) => (
     <motion.div
       key={item.id}
       layout
       transition={{ duration: 1.5, type: "spring" }}
-      className={`w-[75px] h-[75px]  sm:w-24 sm:h-24 gap-4 flex justify-center items-center ${item.color}`}
-    >
+      className={`w-[60px] h-[60px]  sm:w-24 sm:h-24 lg:w-20 lg:h-20  gap-4 flex justify-center items-center ${item.color}`}>
       <item.component className="w-12 h-12" />
     </motion.div>
   ));
@@ -97,7 +95,7 @@ const ShuffleGrid = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true); // Indicate that the component has mounted
+    setIsMounted(true);
 
     shuffleSquares();
 
@@ -106,7 +104,7 @@ const ShuffleGrid = () => {
 
   useEffect(() => {
     if (isMounted) {
-      setSquares(generateSquares(true)); // Generate shuffled squares after mounting
+      setSquares(generateSquares(true));
     }
   }, [isMounted]);
 
@@ -117,7 +115,7 @@ const ShuffleGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-87 grid-rows-4 gap-4">
+    <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-87 grid-rows-4 gap-4">
       {squares}
     </div>
   );
@@ -136,8 +134,7 @@ const TechnicalSkills = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               key={index}
-              className="bg-black px-4 py-1 rounded-full cursor-default w-max"
-            >
+              className="bg-black px-4 py-1 rounded-full cursor-default w-max">
               {item}
             </motion.h1>
           ))}

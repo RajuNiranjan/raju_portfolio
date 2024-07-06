@@ -30,11 +30,10 @@ const FlipLink = ({ children }) => {
     <motion.a
       initial="initial"
       animate={animationState}
-      className="relative block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-7xl md:text-5xl lg:text-5xl"
+      className="relative block overflow-hidden whitespace-nowrap font-black  text-3xl p-0 sm:text-7xl md:text-5xl lg:text-5xl"
       style={{
         lineHeight: 0.75,
-      }}
-    >
+      }}>
       <div>
         {children.split("").map((l, i) => (
           <motion.span
@@ -52,8 +51,7 @@ const FlipLink = ({ children }) => {
               delay: STAGGER * i,
             }}
             className="inline-block"
-            key={i}
-          >
+            key={i}>
             {l}
           </motion.span>
         ))}
@@ -75,8 +73,7 @@ const FlipLink = ({ children }) => {
               delay: STAGGER * i,
             }}
             className="inline-block"
-            key={i}
-          >
+            key={i}>
             {l}
           </motion.span>
         ))}
