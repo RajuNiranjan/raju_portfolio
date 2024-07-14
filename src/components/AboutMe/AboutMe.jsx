@@ -9,6 +9,7 @@ import Raju from "@/assets/Raju.png";
 import Image from "next/image";
 import GitLab from "@/assets/skillIcons/GitLab";
 import { motion } from "framer-motion";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 const hoverTextStyle = {
   display: "inline-block",
@@ -93,6 +94,12 @@ const AboutMe = () => {
                 <GitLab className="text-2xl text-orange-500" />
               </Link>
             </div>
+            <Link href="/resume/resume.pdf" download="download">
+              <button className="p-2 border border-yellow-500 text-yellow-500 hover:text-black hover:bg-yellow-500 transition-all duration-500 rounded-full">
+                <ArrowDownwardIcon className="text-lg" />
+                Download Resume
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex justify-center items-center">
