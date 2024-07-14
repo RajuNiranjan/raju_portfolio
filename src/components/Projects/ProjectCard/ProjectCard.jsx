@@ -8,9 +8,6 @@ import tsEcomm from "@/assets/projectImgs/ts-ecomm.png";
 import weather from "@/assets/projectImgs/weather.png";
 import portfolio from "@/assets/projectImgs/portfolio.png";
 import Link from "next/link";
-// import { animate, motion, useMotionValue } from "framer-motion";
-// import { useEffect, useState } from "react";
-// import useMeasure from "react-use-measure";
 
 const ProjectDetails = [
   {
@@ -70,63 +67,13 @@ const ProjectDetails = [
 ];
 
 const ProjectCard = () => {
-  // const FAST_DURATION = 25;
-  // const SLOW_DURATION = 75;
-
-  // const [duration, setDuration] = useState(FAST_DURATION);
-  // let [ref, { width }] = useMeasure();
-
-  // const xTranslation = useMotionValue(0);
-
-  // const [mustFinish, setMustFinish] = useState(false);
-  // const [rerender, setRerender] = useState(false);
-
-  // useEffect(() => {
-  //   let controls;
-  //   let finalPosition = -width / 2 - 8;
-
-  //   if (mustFinish) {
-  //     controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
-  //       ease: "linear",
-  //       duration: duration * (1 - xTranslation.get() / finalPosition),
-  //       onComplete: () => {
-  //         setMustFinish(false);
-  //         setRerender(!rerender);
-  //       },
-  //     });
-  //   } else {
-  //     controls = animate(xTranslation, [0, finalPosition], {
-  //       ease: "linear",
-  //       duration: duration,
-  //       repeat: Infinity,
-  //       repeatType: "loop",
-  //       repeatDelay: 0,
-  //     });
-  //   }
-
-  //   return controls?.stop;
-  // }, [rerender, xTranslation, duration, width]);
-
   return (
     <main className="py-8  ">
-      {/* <motion.div
-        className="absolute left-0 flex gap-4"
-        style={{ x: xTranslation }}
-        ref={ref}
-        onHoverStart={() => {
-          setMustFinish(true);
-          setDuration(SLOW_DURATION);
-        }}
-        onHoverEnd={() => {
-          setMustFinish(true);
-          setDuration(FAST_DURATION);
-        }}> */}
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {ProjectDetails.map((item, index) => (
           <div
             key={index}
-            className="rounded-md overflow-hidden h-full w-full grid grid-cols-1 sm:grid-cols-2"
-          >
+            className="rounded-md overflow-hidden h-full w-full grid grid-cols-1 sm:grid-cols-2">
             <Link href={item.demoUrl}>
               <div className="overflow-hidden ">
                 <Image
@@ -154,7 +101,7 @@ const ProjectCard = () => {
           </div>
         ))}
       </div>
-      {/* </motion.div> */}
+      
     </main>
   );
 };
