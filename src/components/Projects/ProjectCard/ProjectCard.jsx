@@ -68,24 +68,24 @@ const ProjectDetails = [
 
 const ProjectCard = () => {
   return (
-    <main className="py-8  ">
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+    <main className="">
+      <div className="flex gap-4 flex-row">
         {ProjectDetails.map((item, index) => (
           <div
             key={index}
-            className="rounded-md overflow-hidden h-full w-full grid grid-cols-1 sm:grid-cols-2">
-            <Link href={item.demoUrl}>
-              <div className="overflow-hidden ">
+            className="rounded-md overflow-hidden h-[160x] md:h-max  w-[600px] flex justify-center bg-black bg-opacity-75   p-2">
+            <Link href={item.demoUrl} className="w-[300px]">
+              <div className=" w-full h-full ">
                 <Image
                   src={item.img}
                   alt=""
                   width={500}
                   height={500}
-                  className="w-full h-full  transform  transition-transform duration-300 hover:scale-[1.05]"
+                  className=" object-contain  transform  transition-transform duration-300 hover:scale-[1.05]"
                 />
               </div>
             </Link>
-            <div className="bg-black  bg-opacity-80 p-2 ">
+            <div className=" w-[300px]  bg-opacity-80 p-2 ">
               <div className="flex gap-1">
                 <h1 className="font-bold text-white tracking-wider">
                   {item.title}
@@ -94,14 +94,13 @@ const ProjectCard = () => {
                   <LaunchIcon className="text-xs hover:text-sm transition-all duration-300 text-white opacity-50 hover:opacity-100" />
                 </Link>
               </div>
-              <small className="text-white lg:line-clamp-4 xl:line-clamp-6 text-opacity-30 hover:text-opacity-80 leading-[16px]">
+              <small className="text-white line-clamp-5 text-opacity-30 hover:text-opacity-80 leading-[16px]">
                 {item.descripton}
               </small>
             </div>
           </div>
         ))}
       </div>
-      
     </main>
   );
 };

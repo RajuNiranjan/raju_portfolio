@@ -78,21 +78,23 @@ const AboutMe = () => {
               innovate and transform digital experiences.
             </h1>
           </div>
-          <div className="flex items-center gap-4 h-14 w-max">
-            <div className="h-10 w-10 text-blue-500 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
-              <Link href="https://www.linkedin.com/in/raju-niranjan/">
-                <LinkedInIcon />
-              </Link>
-            </div>
-            <div className="h-10 w-10 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
-              <Link href="https://github.com/RajuNiranjan">
-                <GitHubIcon />
-              </Link>
-            </div>
-            <div className="h-10 w-10 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
-              <Link href="https://gitlab.com/tnraju">
-                <GitLab className="text-2xl text-orange-500" />
-              </Link>
+          <div className="flex   items-center gap-4 h-14 w-max">
+            <div className="flex items-center gap-2">
+              <div className="h-10 w-10 text-blue-500 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
+                <Link href="https://www.linkedin.com/in/raju-niranjan/">
+                  <LinkedInIcon />
+                </Link>
+              </div>
+              <div className="h-10 w-10 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
+                <Link href="https://github.com/RajuNiranjan">
+                  <GitHubIcon />
+                </Link>
+              </div>
+              <div className="h-10 w-10 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
+                <Link href="https://gitlab.com/tnraju">
+                  <GitLab className="text-2xl text-orange-500" />
+                </Link>
+              </div>
             </div>
             <Link href="/resume/resume.pdf" download="download">
               <button className="p-2 border border-yellow-500 text-yellow-500 hover:text-black hover:bg-yellow-500 transition-all duration-500 rounded-full">
