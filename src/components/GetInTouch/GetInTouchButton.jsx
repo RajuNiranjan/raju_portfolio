@@ -10,6 +10,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "../ui/button";
+import GetInTouch from "./GetInTouch";
 
 const GetInTouchButton = () => {
   return (
@@ -23,6 +24,9 @@ const GetInTouchButton = () => {
             <DrawerTitle>Are you absolutely sure?</DrawerTitle>
             <DrawerDescription>This action cannot be undone.</DrawerDescription>
           </DrawerHeader>
+          <DrawerContent>
+            <GetInTouch />
+          </DrawerContent>
           <DrawerFooter>
             <Button>Submit</Button>
             <DrawerClose>
