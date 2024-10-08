@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { Label } from "../ui/Label";
+import { Label } from "@/components/ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
@@ -127,7 +127,8 @@ const GetInTouch = () => {
                   message.startsWith("Email sent")
                     ? "text-green-600"
                     : "text-red-600"
-                }`}>
+                }`}
+              >
                 {message}
               </p>
             )}
