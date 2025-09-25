@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export const Projects = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-[var(--color-primary)]">
       <section
         id="projects"
-        className="min-h-[80vh] bg-gray-100 rounded-[1.5rem] sm:rounded-[3rem] p-4 sm:p-6 md:p-10 flex flex-col items-center"
+        className="min-h-[80vh] bg-[var(--color-bg-secondary)] rounded-[1.5rem] sm:rounded-[3rem] p-4 sm:p-6 md:p-10 flex flex-col items-center"
       >
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-center text-black mb-6 sm:mb-8 md:mb-10">
           Projects
@@ -25,7 +25,7 @@ const ProjectCard = () => {
   const [expand, setExpand] = useState(false);
   return (
     <div
-      className={`w-[260px] sm:w-[300px] md:w-[350px] bg-white rounded-xl sm:rounded-2xl shadow-md border border-gray-200 overflow-hidden
+      className={`w-[260px] sm:w-[300px] md:w-[350px] bg-[var(--color-primary)] rounded-xl sm:rounded-2xl shadow-md border border-gray-200 overflow-hidden
                   transition-all duration-500 ease-in-out
                   ${
                     expand ? "max-h-[1000px]" : "max-h-[260px] sm:max-h-[300px]"
@@ -39,7 +39,7 @@ const ProjectCard = () => {
           height={150}
           className="w-full h-[120px] sm:h-[150px] md:h-[200px] rounded-t-xl sm:rounded-t-2xl object-cover"
         />
-        <button className="absolute right-2 sm:right-3 bottom-2 sm:bottom-3 bg-black px-2 sm:px-3 py-1 rounded-full text-white text-[9px] sm:text-xs uppercase tracking-wide shadow">
+        <button className="absolute right-2 sm:right-3 bottom-2 sm:bottom-3 bg-[var(--color-secondary)] px-2 sm:px-3 py-1 rounded-full text-[var(--color-primary)] text-[9px] sm:text-xs uppercase tracking-wide shadow">
           Live
         </button>
       </div>
@@ -50,8 +50,8 @@ const ProjectCard = () => {
         }`}
       >
         {expand && (
-          <div className="space-y-3 sm:space-y-4 text-gray-800">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
+          <div className="space-y-3 sm:space-y-4 text-[var(--color-secondary)]">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[var(--color-secondary)]">
               Title
             </h2>
 

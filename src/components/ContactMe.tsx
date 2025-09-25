@@ -70,7 +70,7 @@ export const ContactMe: React.FC = () => {
   return (
     <section
       id="connect"
-      className="bg-[#F0F0F0] min-h-screen rounded-t-[3rem] px-4 sm:px-10 md:px-20 lg:px-40 py-10 space-y-12 sm:space-y-16"
+      className="bg-[var(--color-bg-secondary)] min-h-screen rounded-t-[3rem] px-4 sm:px-10 md:px-20 lg:px-40 py-10 space-y-12 sm:space-y-16"
     >
       <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center">
         Contact Me
@@ -172,7 +172,7 @@ export const ContactMe: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-[#252525] text-[#FFFFFF] text-xs sm:text-sm rounded-full px-4 py-2 w-28 h-9 hover:bg-black transition-colors"
+            className="bg-[var(--color-secondary)] text-[var(--color-primary)] text-xs sm:text-sm rounded-full px-4 py-2 w-28 h-9 hover:bg-[var(--color-secondary)] transition-colors"
           >
             {loading ? "Sending..." : "Submit"}
           </button>
@@ -181,8 +181,8 @@ export const ContactMe: React.FC = () => {
             <p
               className={`text-sm mt-2 ${
                 statusMsg.startsWith("Email sent")
-                  ? "text-green-600"
-                  : "text-red-600"
+                  ? "text-[var(--color-success)]"
+                  : "text-[var(--color-failure)]"
               }`}
             >
               {statusMsg}

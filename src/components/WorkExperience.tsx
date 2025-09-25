@@ -38,13 +38,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   return (
     <div className="relative">
       {!isLast && (
-        <div
-          className="absolute left-4 sm:left-6 top-12 sm:top-16 w-0.5 h-[calc(100%-3rem)] sm:h-[calc(100%-4rem)] bg-[#252525] border-dashed border-l-2"
-          style={{ borderColor: "#252525" }}
-        />
+        <div className="absolute left-4 sm:left-6 top-12 sm:top-16 w-0.5 h-[calc(100%-3rem)] sm:h-[calc(100%-4rem)] bg-[var(--color-secondary)] border-dashed border-l-2" />
       )}
 
-      <div className="absolute left-0 top-3 sm:top-4 w-10 sm:w-12 h-10 sm:h-12 rounded-full overflow-hidden z-10 bg-white shadow flex justify-center items-center">
+      <div className="absolute left-0 top-3 sm:top-4 w-10 sm:w-12 h-10 sm:h-12 rounded-full overflow-hidden z-10 bg-[var(--color-primary)] shadow flex justify-center items-center">
         <Image
           src={item.logo}
           alt={`${item.company} logo`}

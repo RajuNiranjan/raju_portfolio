@@ -9,7 +9,7 @@ export const Skills = () => {
       id="skills"
       className="space-y-6 px-4 sm:px-10 md:px-20 h-[50vh] flex flex-col justify-center items-center"
     >
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-black">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[var(--color-secondary)]">
         Skills
       </h1>
 
@@ -23,7 +23,7 @@ export const Skills = () => {
             key={idx}
             className="flex flex-col items-center justify-center mx-2 sm:mx-5"
           >
-            <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/20 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-lg transition">
+            <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[var(--color-primary)] backdrop-blur-md  shadow-md hover:shadow-lg transition">
               <Image
                 src={item.icon}
                 alt={item.name}
