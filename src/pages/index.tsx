@@ -16,10 +16,12 @@ const Main = () => {
       <Header />
       <Hero />
       <Skills />
-      <div className="grid grid-cols-2 gap-4 px-20">
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 sm:px-10 md:px-20 lg:px-40">
         <WorkExperience />
         <Education />
       </div>
+
       <Projects />
       <Services />
       <ContactMe />

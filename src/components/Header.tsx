@@ -18,21 +18,14 @@ export const Header = () => {
   };
 
   return (
-    <nav
-      className="
-        fixed top-0 left-0 right-0 z-50
-        h-14 w-full px-10
-        flex items-center justify-between
-        backdrop-blur-md 
-      "
-    >
-      <div className="flex items-center gap-4 relative">
-        <h1 className="text-sm">{email}</h1>
+    <nav className="fixed top-0 left-0 right-0 z-50 h-14 w-full px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between backdrop-blur-md gap-2 sm:gap-0">
+      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+        <h1 className="text-xs sm:text-sm">{email}</h1>
 
         <div className="relative">
           <button
             onClick={handleCopy}
-            className="bg-white text-xs px-3 py-1 h-8 flex justify-center items-center font-medium rounded-full gap-2 cursor-pointer"
+            className="bg-white text-xs sm:text-sm px-3 py-1 h-8 flex justify-center items-center font-medium rounded-full gap-2 cursor-pointer"
           >
             {copied ? (
               <>
@@ -52,23 +45,23 @@ export const Header = () => {
               <span className="bg-black text-white text-xs px-2 py-1 rounded shadow-md whitespace-nowrap">
                 Copied!
               </span>
-              <span className="w-2 h-2 bg-black rotate-45 -mt-7"></span>
+              <span className="w-2 h-2 bg-black rotate-45 -mt-1.5"></span>
             </div>
           )}
         </div>
 
-        <button className="bg-white text-xs px-3 py-1 h-8 flex justify-center items-center font-medium rounded-full gap-2 cursor-pointer">
+        <button className="bg-white text-xs sm:text-sm px-3 py-1 h-8 flex justify-center items-center font-medium rounded-full gap-2 cursor-pointer">
           Resume
           <Image src={DownloadIcon} alt="" width={15} height={15} />
         </button>
       </div>
 
-      <div className="text-sm font-medium">
-        <Link href={linkedin} target="_blank">
+      <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
+        <Link href={linkedin} target="_blank" className="hover:underline">
           LinkedIn
-        </Link>{" "}
-        /{" "}
-        <Link href={github} target="_blank">
+        </Link>
+        <span className="hidden sm:inline">/</span>
+        <Link href={github} target="_blank" className="hover:underline">
           GitHub
         </Link>
       </div>
