@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import {
-  ChevronDown,
-  ChevronRight,
-  MapPin,
-  Calendar,
-  Building,
-} from "lucide-react";
-import {
   LocationIcon,
   CalenderIcon,
-  KlubStackIcon,
-  FlyingFoxLabsIcon,
-  SkyteXIcon,
+  ChevronDownIcon,
+  BuildingIcon,
 } from "@/assets/images";
 import Image, { StaticImageData } from "next/image";
+import { workExperienceData } from "@/utils/data";
 
 const clsx = (...classes: (string | undefined | false)[]): string => {
   return classes.filter(Boolean).join(" ");
@@ -30,84 +23,6 @@ interface WorkExperienceItem {
   technologies?: string[];
 }
 
-const workExperienceData: WorkExperienceItem[] = [
-  {
-    id: "1",
-    logo: SkyteXIcon,
-    company: "Skytex Unmanned Aerial Solutions ",
-    role: "Software Developer Engineer 1",
-    location: "Bengaluru, Karnataka",
-    duration: "Mar 2025 - Present",
-    responsibilities: [
-      "Designed Offline Map System with OSM & Google Maps tile caching, improving large-area load speed by 25%.",
-      "Built real-time AMSL graph for drone telemetry with automated terrain-collision detection, enhancing flight safety.",
-      "Developed Drone Parameter CRUD APIs with Redis caching, reducing response times by 50%.",
-    ],
-    technologies: [
-      "React.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-      "Express.js",
-      "Redis",
-      "Redux",
-      "PostgreSQL",
-      "Docker",
-    ],
-  },
-  {
-    id: "2",
-    logo: FlyingFoxLabsIcon,
-    company: "FlyingFox Labs Pvt Ltd",
-    role: "Software Developer",
-    location: "Hyderabad, Telangana",
-    duration: "Feb 2024 - Feb 2025",
-    responsibilities: [
-      "Customized Keycloak themes & SSO integration, cutting onboarding time by 30%.",
-      "Built Meeting Scheduling App with real-time availability, reducing the booking time by 30%.",
-      "Developed a real-time multiplayer game with Socket.io, boosting interactivity & engagement.",
-    ],
-    technologies: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Zustand",
-      "Tamagui",
-      "Node.js",
-      "Nest.js",
-      "MongoDB",
-      "Docker",
-    ],
-  },
-  {
-    id: "3",
-    logo: KlubStackIcon,
-    company: "KLUBSTACK",
-    role: "Frontend Developer",
-    location: "Chennai, TamilNadu",
-    duration: "Jun 2023 - Jan 2024",
-    responsibilities: [
-      "Built Email Automation App using Next.js, improving interactivity by 25%.",
-      "Migrated large codebase to Next.js + TypeScript, increasing maintainability by 30%.",
-      "Optimized performance with 15% faster page load times.",
-    ],
-    technologies: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Redux",
-      "MaterislUI",
-      "shadcn/ui",
-      "TailwindCSS",
-      "Node.js",
-      "Nest.js",
-      "MongoDB",
-    ],
-  },
-];
-
 interface TimelineItemProps {
   item: WorkExperienceItem;
   isExpanded: boolean;
@@ -123,16 +38,24 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 }) => {
   return (
     <div className="relative">
-      {/* Timeline line */}
       {!isLast && (
-        <div className="absolute left-6 top-12 w-0.5 h-full bg-gray-300"></div>
+        <div
+          className="absolute left-6 top-16 w-0.5 h-[calc(100%-4rem)] bg-[#252525] border-dashed border-l-2"
+          style={{ borderColor: "#252525" }}
+        />
       )}
 
-      {/* Timeline dot */}
-      <div className="absolute left-4 top-8 w-4 h-4 bg-gray-300 rounded-full bg-background z-10"></div>
+      <div className="absolute left-0 top-4 w-12 h-12 rounded-full overflow-hidden z-10 bg-white shadow flex justify-center items-center">
+        <Image
+          src={item.logo}
+          alt={`${item.company} logo`}
+          width={35}
+          height={35}
+          className="object-cover"
+        />
+      </div>
 
-      {/* Content */}
-      <div className="ml-12 pb-8">
+      <div className="ml-20 pb-8">
         <div
           onClick={onToggle}
           className={clsx(
@@ -141,17 +64,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
             isExpanded && "border-primary/30 bg-timeline-card-hover"
           )}
         >
-          {/* Header */}
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <Image
-                  src={item.logo}
-                  alt=""
-                  width={35}
-                  height={35}
-                  className="w-[1rem] h-[1rem]"
-                />
+                <Image src={BuildingIcon} alt="" width={25} height={25} />
                 <h3 className="font-semibold text-lg text-foreground">
                   {item.company}
                 </h3>
@@ -159,11 +75,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
               <p className="text-primary font-medium mb-2">{item.role}</p>
               <div className="flex items-center gap-4 text-sm text-timeline-text-muted">
                 <div className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3" />
+                  <Image src={CalenderIcon} alt="" width={15} height={15} />
                   <span>{item.duration}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
+                  <Image src={LocationIcon} alt="" width={15} height={15} />
                   <span>{item.location}</span>
                 </div>
               </div>
@@ -174,15 +90,18 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                 isExpanded && "rotate-90"
               )}
             >
-              {isExpanded ? (
-                <ChevronDown className="h-5 w-5 text-muted-foreground" />
-              ) : (
-                <ChevronRight className="h-5 w-5 text-muted-foreground" />
-              )}
+              <Image
+                src={ChevronDownIcon}
+                alt=""
+                width={20}
+                height={20}
+                className={`text-muted_foreground ${
+                  isExpanded ? "rotate-270" : "rotate-180"
+                }`}
+              />
             </button>
           </div>
 
-          {/* Expanded content */}
           <div
             className={clsx(
               "overflow-hidden transition-all duration-300 ease-in-out",
@@ -201,7 +120,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                       className="flex items-start gap-2 text-sm text-muted-foreground"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                      <span>{responsibility}</span>
+                      <span>&bull; {responsibility}</span>
                     </li>
                   ))}
                 </ul>
@@ -232,7 +151,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   );
 };
 
-const WorkExperience: React.FC = () => {
+export const WorkExperience: React.FC = () => {
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
 
   const toggleItem = (id: string) => {
@@ -246,15 +165,11 @@ const WorkExperience: React.FC = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div id="experience" className="max-w-4xl mx-auto p-6">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-foreground mb-4">
           Work Experience
         </h1>
-        <p className="text-timeline-text-muted text-lg">
-          Click on any position to explore detailed responsibilities and
-          achievements
-        </p>
       </div>
 
       <div className="relative">
@@ -271,5 +186,3 @@ const WorkExperience: React.FC = () => {
     </div>
   );
 };
-
-export default WorkExperience;
