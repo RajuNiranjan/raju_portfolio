@@ -27,7 +27,7 @@ export const Header = () => {
             <button
               onClick={handleCopy}
               disabled={!email}
-              className="bg-white text-xs sm:text-sm px-3 py-1 h-8 flex justify-center items-center font-medium rounded-full gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-[var(--color-primary)] text-xs sm:text-sm px-3 py-1 h-8 flex justify-center items-center font-medium rounded-full gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {copied ? (
                 <>
@@ -56,18 +56,18 @@ export const Header = () => {
 
             {copied && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 flex flex-col items-center">
-                <span className="bg-black text-white text-xs px-2 py-1 rounded shadow-md whitespace-nowrap">
+                <span className="text-[var(--color-btn-bg-primary)] bg-[var(--color-secondary)] text-xs px-2 py-1 rounded shadow-md whitespace-nowrap">
                   Copied!
                 </span>
-                <span className="w-2 h-2 bg-black rotate-45 -mt-1.5"></span>
+                <span className="w-2 h-2 bg-[var(--color-secondary)] rotate-45 -mt-7"></span>
               </div>
             )}
           </div>
 
           <Link
-            href="/resume.pdf" // Placeholder; replace with actual resume URL
+            href="/resume.pdf"
             download
-            className="hidden sm:flex bg-white text-xs sm:text-sm px-3 py-1 h-8 justify-center items-center font-medium rounded-full gap-2 cursor-pointer"
+            className="hidden sm:flex bg-[var(--color-primary)] text-xs sm:text-sm px-3 py-1 h-8 justify-center items-center font-medium rounded-full gap-2 cursor-pointer"
           >
             Resume
             <Image
@@ -96,7 +96,7 @@ export const Header = () => {
         >
           LinkedIn
         </Link>
-        <span className="hidden sm:inline">/</span>
+        <span className="inline">/</span>
         <Link
           href={github ?? "#"}
           target="_blank"

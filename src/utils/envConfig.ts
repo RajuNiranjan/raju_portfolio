@@ -8,5 +8,6 @@ export const envConfig = {
   address: process.env.NEXT_PUBLIC_ADDRESS,
   service_id:process.env.NEXT_PUBLIC_SERVICE_ID,
   template_id:process.env.NEXT_PUBLIC_TEMPLATE_ID,
-  public_key:process.env.NEXT_PUBLIC_PUBLIC_KEY
+  public_key:process.env.NEXT_PUBLIC_PUBLIC_KEY,
+  reply_to:process.env.NEXT_PUBLIC_REPLY_TO
 };

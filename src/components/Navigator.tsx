@@ -31,7 +31,7 @@ export const Navigator = () => {
   };
 
   return (
-    <div className="fixed top-1/2 right-10 z-50 flex flex-col items-end gap-1 -translate-y-1/2">
+    <div className="fixed top-1/2 right-2 md:right-10 z-50 flex flex-col items-end gap-1 -translate-y-1/2">
       {navigators.map((item) => (
         <div key={item.id} className="flex items-center group">
           <span
@@ -41,8 +41,8 @@ export const Navigator = () => {
               transition-all duration-300 ease-in-out
               ${
                 activeSection === item.id
-                  ? "font-semibold text-sm  text-black"
-                  : "text-xs text-gray-400"
+                  ? "font-semibold text-sm  text-[var(--color-secondary)]"
+                  : "text-xs text-[var(--colot-thired)]"
               }
             `}
           >
