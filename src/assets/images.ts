@@ -36,6 +36,7 @@ import HTMLIcon from "./skill/html.svg";
 import CSSIcon from "./skill/css.svg";
 import LinuxIcon from "./skill/linux.svg";
 import BootStrapIcon from "./skill/bootstrap.svg";
+import ExpressIcon from "./skill/express.svg";
 
 export {
   RajuImg,
@@ -75,4 +76,5 @@ export {
   CSSIcon,
   LinuxIcon,
   BootStrapIcon,
+  ExpressIcon
 };

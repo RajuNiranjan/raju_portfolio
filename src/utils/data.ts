@@ -1,4 +1,24 @@
-import { SystemIcon, SquaresIcon, BuildingIcon, CodeIcon, KlubStackIcon, FlyingFoxLabsIcon, SkyteXIcon, } from '@/assets/images'
+import {
+  SystemIcon, SquaresIcon, BuildingIcon, CodeIcon, KlubStackIcon, FlyingFoxLabsIcon, SkyteXIcon,
+    ReactIcon,
+  NextJSIcon,
+  TypeScriptIcon,
+  JavaScriptIcon,
+  ReduxIcon,
+  TailwindCSSIcon,
+  NodeJSIcon,
+  MongoDBIcon,
+  PgSQLIcon,
+  RedisIcon,
+  DockerIcon,
+  ViteIcon,
+  NestJSIcon,
+  HTMLIcon,
+  CSSIcon,
+  LinuxIcon,
+  BootStrapIcon,
+  ExpressIcon,
+ } from '@/assets/images'
 
 export const serviceData = [
   {
@@ -132,21 +152,32 @@ export const workExperienceData = [
   },
 ];
 
-export const skills = [
-  "React.js",
-  "Next.js",
-  "TypeScript",
-  "JavaScript",
-  "TailwindCSS",
-  "Redux",
-  "Zustand",
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "PostgreSQL",
-  "Redis",
-  "Docker",
-  "MaterialUI",
-  "shadcn/ui",
-  "Tamagui"
-]
+export const navigators = [
+  { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
+  { name: "Experience/Education", id: "experience" },
+  { name: "Projects", id: "projects" },
+  { name: "Services", id: "services" },
+  { name: "Connect Me", id: "connect" },
+];
+
+export const skillItems = [
+    { name: "React", icon: ReactIcon },
+    { name: "Next.js", icon: NextJSIcon },
+    { name: "TypeScript", icon: TypeScriptIcon },
+    { name: "JavaScript", icon: JavaScriptIcon },
+    { name: "Redux", icon: ReduxIcon },
+    { name: "Tailwind CSS", icon: TailwindCSSIcon },
+    { name: "Node.js", icon: NodeJSIcon },
+    { name: "MongoDB", icon: MongoDBIcon },
+    { name: "PostgreSQL", icon: PgSQLIcon },
+    { name: "Redis", icon: RedisIcon },
+    { name: "Docker", icon: DockerIcon },
+    { name: "Vite", icon: ViteIcon },
+    { name: "NestJS", icon: NestJSIcon },
+    { name: "HTML5", icon: HTMLIcon },
+    { name: "CSS3", icon: CSSIcon },
+    { name: "Linux", icon: LinuxIcon },
+    { name: "BootStrap", icon: BootStrapIcon },
+    { name: "Express.js", icon: ExpressIcon },
+  ];

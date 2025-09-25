@@ -13,7 +13,7 @@ export const Hero = () => {
   return (
     <section
       id="about"
-      className="bg-[#F0F0F0] min-h-[60vh] md:h-[65vh] rounded-b-[3rem] flex justify-center items-center px-4"
+      className="bg-[#F0F0F0] min-h-[75vh] md:h-[65vh] rounded-b-[3rem] flex justify-center items-center px-4"
     >
       <div className="w-full max-w-[550px] flex flex-col justify-center items-center gap-6 sm:gap-4">
         <div className="group w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full relative shadow p-1">

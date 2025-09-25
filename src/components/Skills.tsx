@@ -1,47 +1,9 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
-import {
-  ReactIcon,
-  NextJSIcon,
-  TypeScriptIcon,
-  JavaScriptIcon,
-  ReduxIcon,
-  TailwindCSSIcon,
-  NodeJSIcon,
-  MongoDBIcon,
-  PgSQLIcon,
-  RedisIcon,
-  DockerIcon,
-  ViteIcon,
-  NestJSIcon,
-  HTMLIcon,
-  CSSIcon,
-  LinuxIcon,
-  BootStrapIcon,
-} from "@/assets/images";
+import { skillItems } from "@/utils/data";
 
 export const Skills = () => {
-  const skillItems = [
-    { name: "React", icon: ReactIcon },
-    { name: "Next.js", icon: NextJSIcon },
-    { name: "TypeScript", icon: TypeScriptIcon },
-    { name: "JavaScript", icon: JavaScriptIcon },
-    { name: "Redux", icon: ReduxIcon },
-    { name: "Tailwind CSS", icon: TailwindCSSIcon },
-    { name: "Node.js", icon: NodeJSIcon },
-    { name: "MongoDB", icon: MongoDBIcon },
-    { name: "PostgreSQL", icon: PgSQLIcon },
-    { name: "Redis", icon: RedisIcon },
-    { name: "Docker", icon: DockerIcon },
-    { name: "Vite", icon: ViteIcon },
-    { name: "NestJS", icon: NestJSIcon },
-    { name: "HTML5", icon: HTMLIcon },
-    { name: "CSS3", icon: CSSIcon },
-    { name: "Linux", icon: LinuxIcon },
-    { name: "BootStrap", icon: BootStrapIcon },
-  ];
-
   return (
     <section
       id="skills"

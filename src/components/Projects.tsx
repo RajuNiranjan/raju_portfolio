@@ -7,13 +7,13 @@ export const Projects = () => {
     <div className="bg-white">
       <section
         id="projects"
-        className="min-h-[80vh] bg-gray-100 rounded-[3rem] p-10 flex flex-col items-center"
+        className="min-h-[80vh] bg-gray-100 rounded-[1.5rem] sm:rounded-[3rem] p-4 sm:p-6 md:p-10 flex flex-col items-center"
       >
-        <h1 className="text-5xl md:text-6xl font-extrabold text-center text-black mb-10">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-center text-black mb-6 sm:mb-8 md:mb-10">
           Projects
         </h1>
 
-        <div className="flex flex-wrap gap-8 justify-center">
+        <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center">
           <ProjectCard />
         </div>
       </section>
@@ -25,33 +25,37 @@ const ProjectCard = () => {
   const [expand, setExpand] = useState(false);
   return (
     <div
-      className={`w-[350px] bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden
+      className={`w-[260px] sm:w-[300px] md:w-[350px] bg-white rounded-xl sm:rounded-2xl shadow-md border border-gray-200 overflow-hidden
                   transition-all duration-500 ease-in-out
-                  ${expand ? "max-h-[1000px]" : "max-h-[320px]"}`}
+                  ${
+                    expand ? "max-h-[1000px]" : "max-h-[260px] sm:max-h-[300px]"
+                  }`}
     >
       <div className="relative">
         <Image
           src={TrendsetBanner}
           alt="Project Banner"
-          width={350}
-          height={200}
-          className="rounded-t-2xl object-cover"
+          width={260}
+          height={150}
+          className="w-full h-[120px] sm:h-[150px] md:h-[200px] rounded-t-xl sm:rounded-t-2xl object-cover"
         />
-        <button className="absolute right-3 bottom-3 bg-black px-3 py-1 rounded-full text-white text-xs uppercase tracking-wide shadow">
+        <button className="absolute right-2 sm:right-3 bottom-2 sm:bottom-3 bg-black px-2 sm:px-3 py-1 rounded-full text-white text-[9px] sm:text-xs uppercase tracking-wide shadow">
           Live
         </button>
       </div>
 
       <div
         className={`transition-opacity duration-500 ease-in-out ${
-          expand ? "opacity-100 p-5" : "opacity-0 p-0"
+          expand ? "opacity-100 p-3 sm:p-4 md:p-5" : "opacity-0 p-0"
         }`}
       >
         {expand && (
-          <div className="space-y-4 text-gray-800">
-            <h2 className="text-2xl font-semibold text-black">Title</h2>
+          <div className="space-y-3 sm:space-y-4 text-gray-800">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
+              Title
+            </h2>
 
-            <div className="flex space-x-4 text-sm">
+            <div className="flex space-x-3 sm:space-x-4 text-[10px] sm:text-sm">
               <a
                 href="#"
                 className="text-black underline hover:text-gray-700 transition-colors"
@@ -66,7 +70,7 @@ const ProjectCard = () => {
               </a>
             </div>
 
-            <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
+            <ul className="list-disc list-inside text-gray-700 text-[10px] sm:text-xs md:text-sm space-y-1">
               <li>Feature one</li>
               <li>Feature two</li>
               <li>Feature three</li>
@@ -74,7 +78,7 @@ const ProjectCard = () => {
               <li>Feature five</li>
             </ul>
 
-            <div className="text-sm text-gray-600">
+            <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">
               Built with: React.js, Express.js, etc.
             </div>
           </div>
@@ -82,15 +86,15 @@ const ProjectCard = () => {
       </div>
 
       <div
-        className="flex justify-center items-center py-3 cursor-pointer border-t border-gray-200 hover:bg-gray-50 transition"
+        className="flex justify-center items-center py-2 sm:py-3 cursor-pointer border-t border-gray-200 hover:bg-gray-50 transition"
         onClick={() => setExpand(!expand)}
       >
         <Image
           src={ChevronDownIcon}
           alt="Toggle Details"
-          width={25}
-          height={25}
-          className={`transition-transform duration-500 ease-in-out ${
+          width={18}
+          height={18}
+          className={`sm:w-[20px] sm:h-[20px] md:w-[25px] md:h-[25px] transition-transform duration-500 ease-in-out ${
             expand ? "rotate-180" : "rotate-0"
           }`}
         />

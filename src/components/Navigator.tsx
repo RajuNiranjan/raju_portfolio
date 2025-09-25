@@ -1,13 +1,5 @@
+import { navigators } from "@/utils/data";
 import React, { useState, useEffect } from "react";
-
-const navigators = [
-  { name: "About", id: "about" },
-  { name: "Skills", id: "skills" },
-  { name: "Experience/Education", id: "experience" },
-  { name: "Projects", id: "projects" },
-  { name: "Services", id: "services" },
-  { name: "Connect Me", id: "connect" },
-];
 
 export const Navigator = () => {
   const [activeSection, setActiveSection] = useState("about");

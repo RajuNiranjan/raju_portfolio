@@ -1,5 +1,7 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "emailjs-com";
+import Image from "next/image";
 import {
   MailIcon,
   CallIcon,
@@ -7,14 +9,55 @@ import {
   GitHubIcon,
   LocationIcon,
 } from "@/assets/images";
-import Image from "next/image";
+import { envConfig } from "@/utils/envConfig";
 
-export const ContactMe = () => {
-  const email = "rajuniranjan1910@gmail.com";
-  const mobile = "(+91)-9849592791";
-  const location =
-    "Hanumaih Nagar, Koritepadu, Guntur, Andhra Pradesh - 522007";
+export const ContactMe: React.FC = () => {
+  const { email, mobileNo, address, service_id, template_id, public_key } =
+    envConfig;
+
   const year = new Date().getFullYear();
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [statusMsg, setStatusMsg] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatusMsg(null);
+
+    const mergedData = {
+      from_name: `${formData.first_name} ${formData.last_name}`,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      await emailjs.send(service_id!, template_id!, mergedData, public_key);
+
+      emailjs.send(service_id!, template_id!, mergedData, public_key!);
+
+      setStatusMsg("Email sent successfully! Auto-reply sent.");
+      setFormData({ first_name: "", last_name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Email error:", error);
+      setStatusMsg("Failed to send email. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section
@@ -26,7 +69,6 @@ export const ContactMe = () => {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Contact Info */}
         <div className="flex flex-col gap-6 text-sm sm:text-base">
           <div className="flex items-center gap-2">
             <Image src={MailIcon} alt="Email" width={20} height={20} />
@@ -34,11 +76,11 @@ export const ContactMe = () => {
           </div>
           <div className="flex items-center gap-2">
             <Image src={CallIcon} alt="Phone" width={20} height={20} />
-            <p>{mobile}</p>
+            <p>{mobileNo}</p>
           </div>
           <div className="flex items-center gap-2">
             <Image src={LocationIcon} alt="Location" width={20} height={20} />
-            <p>{location}</p>
+            <p>{address}</p>
           </div>
           <div className="flex items-center gap-4">
             <Link
@@ -58,8 +100,11 @@ export const ContactMe = () => {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <form className="grid grid-cols-1 gap-10">
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 gap-10"
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10">
             <div className="grid grid-cols-1 gap-2 sm:gap-4">
               <label htmlFor="first_name" className="text-xs sm:text-sm">
@@ -70,6 +115,8 @@ export const ContactMe = () => {
                 name="first_name"
                 type="text"
                 required
+                value={formData.first_name}
+                onChange={handleChange}
                 className="focus:outline-none border-b bg-transparent py-1"
                 placeholder="Niranjan"
               />
@@ -83,6 +130,8 @@ export const ContactMe = () => {
                 name="last_name"
                 type="text"
                 required
+                value={formData.last_name}
+                onChange={handleChange}
                 className="focus:outline-none border-b bg-transparent py-1"
                 placeholder="Raju"
               />
@@ -98,6 +147,8 @@ export const ContactMe = () => {
               name="email"
               type="email"
               required
+              value={formData.email}
+              onChange={handleChange}
               className="focus:outline-none border-b bg-transparent py-1"
               placeholder="rajuniranjan1910@gmail.com"
             />
@@ -111,6 +162,8 @@ export const ContactMe = () => {
               id="message"
               name="message"
               required
+              value={formData.message}
+              onChange={handleChange}
               className="focus:outline-none border-b bg-transparent resize-none py-1"
               placeholder="Hi, Niranjan....."
             />
@@ -118,10 +171,23 @@ export const ContactMe = () => {
 
           <button
             type="submit"
+            disabled={loading}
             className="bg-[#252525] text-[#FFFFFF] text-xs sm:text-sm rounded-full px-4 py-2 w-28 h-9 hover:bg-black transition-colors"
           >
-            Submit
+            {loading ? "Sending..." : "Submit"}
           </button>
+
+          {statusMsg && (
+            <p
+              className={`text-sm mt-2 ${
+                statusMsg.startsWith("Email sent")
+                  ? "text-green-600"
+                  : "text-red-600"
+              }`}
+            >
+              {statusMsg}
+            </p>
+          )}
         </form>
       </div>
 
