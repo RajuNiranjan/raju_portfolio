@@ -56,8 +56,8 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
           onClick={onToggle}
           className={clsx(
             "cursor-pointer rounded-lg border bg-timeline-card p-3 sm:p-4 lg:p-6 transition-all duration-300",
-            "hover:bg-timeline-card-hover hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5",
-            isExpanded && "border-primary/30 bg-timeline-card-hover"
+            "hover:bg-timeline-card-hover hover:border-secondary/20 hover:shadow-lg hover:shadow-secondary/5",
+            isExpanded && "border-secondaary/20 bg-timeline-card-hover"
           )}
         >
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 sm:gap-2 lg:gap-0">
@@ -74,7 +74,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                   {item.company}
                 </h3>
               </div>
-              <p className="text-primary font-medium text-xs sm:text-sm lg:text-base mb-2 leading-tight sm:leading-normal">
+              <p className="text-secondary font-medium text-xs sm:text-sm lg:text-base mb-2 leading-tight sm:leading-normal">
                 {item.role}
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 lg:gap-4 text-xs sm:text-sm text-timeline-text-muted">
