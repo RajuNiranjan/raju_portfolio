@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { ChevronDownIcon } from "@/assets/images";
 import { projects } from "@/utils/data";
 
-export const Projects = () => {
+export interface ProjectType {
+  id: number;
+  image: string | StaticImageData;
+  title: string;
+  live_link: string;
+  github_link: string;
+  tech_stack: string[];
+  desc: string[];
+}
+
+export const Projects: React.FC = () => {
   return (
     <div className="bg-[var(--color-primary)]">
       <section
@@ -24,7 +34,11 @@ export const Projects = () => {
   );
 };
 
-const ProjectCard = ({ project }) => {
+interface ProjectCardProps {
+  project: ProjectType;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [expand, setExpand] = useState(false);
 
   return (
@@ -58,7 +72,7 @@ const ProjectCard = ({ project }) => {
       >
         {expand && (
           <div className="space-y-3 sm:space-y-4 text-[var(--color-secondary)]">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[var(--color-secondary)]">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold">
               {project.title}
             </h2>
 
@@ -95,7 +109,7 @@ const ProjectCard = ({ project }) => {
 
       <div
         className="flex justify-center items-center py-2 sm:py-3 cursor-pointer border-t border-gray-200 hover:bg-gray-50 transition"
-        onClick={() => setExpand(!expand)}
+        onClick={() => setExpand((prev) => !prev)}
       >
         <Image
           src={ChevronDownIcon}
