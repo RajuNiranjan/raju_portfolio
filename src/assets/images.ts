@@ -17,7 +17,10 @@ import GitHubIcon from "./svgs/github.svg";
 import SquaresIcon from "./svgs/squares.svg";
 import SystemIcon from "./svgs/system.svg";
 import CodeIcon from "./svgs/code.svg";
+
 import TrendsetBanner from "./project_images/trendset.png";
+import MentrosClubBanner from "./project_images/mentors_club.png";
+import ChatAppBanner from "./project_images/chat_app.png";
 
 import ReactIcon from "./skill/react.svg";
 import NextJSIcon from "./skill/nextjs.svg";
@@ -59,6 +62,8 @@ export {
   SystemIcon,
   CodeIcon,
   TrendsetBanner,
+  MentrosClubBanner,
+  ChatAppBanner,
   ReactIcon,
   NextJSIcon,
   TypeScriptIcon,
@@ -76,5 +81,5 @@ export {
   CSSIcon,
   LinuxIcon,
   BootStrapIcon,
-  ExpressIcon
+  ExpressIcon,
 };

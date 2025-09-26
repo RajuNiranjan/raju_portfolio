@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { ChevronDownIcon, TrendsetBanner } from "@/assets/images";
 import Image from "next/image";
+import { ChevronDownIcon } from "@/assets/images";
+import { projects } from "@/utils/data";
 
 export const Projects = () => {
   return (
@@ -14,34 +15,40 @@ export const Projects = () => {
         </h1>
 
         <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center">
-          <ProjectCard />
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
       </section>
     </div>
   );
 };
 
-const ProjectCard = () => {
+const ProjectCard = ({ project }) => {
   const [expand, setExpand] = useState(false);
+
   return (
     <div
       className={`w-[260px] sm:w-[300px] md:w-[350px] bg-[var(--color-primary)] rounded-xl sm:rounded-2xl shadow-md border border-gray-200 overflow-hidden
-                  transition-all duration-500 ease-in-out
-                  ${
-                    expand ? "max-h-[1000px]" : "max-h-[260px] sm:max-h-[300px]"
-                  }`}
+        transition-all duration-500 ease-in-out
+        ${expand ? "max-h-[1000px]" : "max-h-[260px] sm:max-h-[300px]"}`}
     >
       <div className="relative">
         <Image
-          src={TrendsetBanner}
-          alt="Project Banner"
-          width={260}
-          height={150}
+          src={project.image}
+          alt={`${project.title} Banner`}
+          width={350}
+          height={200}
           className="w-full h-[120px] sm:h-[150px] md:h-[200px] rounded-t-xl sm:rounded-t-2xl object-cover"
         />
-        <button className="absolute right-2 sm:right-3 bottom-2 sm:bottom-3 bg-[var(--color-secondary)] px-2 sm:px-3 py-1 rounded-full text-[var(--color-primary)] text-[9px] sm:text-xs uppercase tracking-wide shadow">
+        <a
+          href={project.live_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-2 sm:right-3 bottom-2 sm:bottom-3 bg-[var(--color-secondary)] px-2 sm:px-3 py-1 rounded-full text-[var(--color-primary)] text-[9px] sm:text-xs uppercase tracking-wide shadow"
+        >
           Live
-        </button>
+        </a>
       </div>
 
       <div
@@ -52,18 +59,22 @@ const ProjectCard = () => {
         {expand && (
           <div className="space-y-3 sm:space-y-4 text-[var(--color-secondary)]">
             <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[var(--color-secondary)]">
-              Title
+              {project.title}
             </h2>
 
             <div className="flex space-x-3 sm:space-x-4 text-[10px] sm:text-sm">
               <a
-                href="#"
+                href={project.github_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-black underline hover:text-gray-700 transition-colors"
               >
                 GitHub
               </a>
               <a
-                href="#"
+                href={project.live_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-black underline hover:text-gray-700 transition-colors"
               >
                 Live Site
@@ -71,15 +82,12 @@ const ProjectCard = () => {
             </div>
 
             <ul className="list-disc list-inside text-gray-700 text-[10px] sm:text-xs md:text-sm space-y-1">
-              <li>Feature one</li>
-              <li>Feature two</li>
-              <li>Feature three</li>
-              <li>Feature four</li>
-              <li>Feature five</li>
+              {project.desc.map((point, idx) => (
+                <li key={idx}>{point}</li>
+              ))}
             </ul>
-
             <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">
-              Built with: React.js, Express.js, etc.
+              Built with: {project.tech_stack.join(", ")}
             </div>
           </div>
         )}
