@@ -158,7 +158,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                     {item.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs lg:text-sm font-medium bg-primary/10 text-primary rounded-full border border-primary/20 leading-tight"
+                        className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs lg:text-sm font-medium bg-secondary/20 text-secondary rounded-full border border-secondary/30 leading-tight"
                       >
                         {tech}
                       </span>
